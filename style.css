@@ -495,3 +495,171 @@ nav a:hover{
     color:#1f2937;
 
 }
+/* ===================================================
+   MODULE 5
+   BUTTON + CARD + FOOTER + ANIMATION
+=================================================== */
+
+/* ---------- Hero Button ---------- */
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    margin-top:40px;
+    flex-wrap:wrap;
+}
+
+.btn-primary,
+.btn-secondary{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:15px 32px;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.btn-primary{
+
+    background:#10b981;
+
+    color:white;
+
+    box-shadow:0 10px 30px rgba(16,185,129,.25);
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-4px);
+
+    background:#059669;
+
+}
+
+.btn-secondary{
+
+    border:2px solid #10b981;
+
+    color:#10b981;
+
+    background:white;
+
+}
+
+.btn-secondary:hover{
+
+    background:#10b981;
+
+    color:white;
+
+}
+
+/* ---------- Hero Card ---------- */
+
+.hero-card{
+
+    background:white;
+
+    padding:45px;
+
+    border-radius:30px;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.08);
+
+    max-width:420px;
+
+    animation:floatCard 5s ease-in-out infinite;
+
+}
+
+.hero-card i{
+
+    font-size:52px;
+
+    color:#10b981;
+
+    margin-bottom:20px;
+
+}
+
+.hero-card h3{
+
+    font-size:32px;
+
+    margin-bottom:12px;
+
+}
+
+.hero-card p{
+
+    line-height:1.8;
+
+    color:#6b7280;
+
+}
+
+/* ---------- Footer ---------- */
+
+footer{
+
+    margin-top:100px;
+
+    background:#0f172a;
+
+    color:white;
+
+    text-align:center;
+
+    padding:60px 20px;
+
+}
+
+footer h3{
+
+    font-size:30px;
+
+    margin-bottom:20px;
+
+}
+
+footer p{
+
+    color:#d1d5db;
+
+    line-height:1.8;
+
+}
+
+/* ---------- Animation ---------- */
+
+@keyframes floatCard{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
