@@ -1,6 +1,7 @@
-/* =======================================
-   HỘP THƯ TÂM LÝ - VERSION 2.0
-======================================= */
+/* ===================================================
+   HỘP THƯ TÂM LÝ - VERSION 3.0
+   Module 1: Reset + Body + Header
+=================================================== */
 
 *{
     margin:0;
@@ -8,19 +9,23 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
 
     font-family:'Poppins',sans-serif;
 
-    background:
-    linear-gradient(135deg,#dff6f0,#edfdf9,#f8fffc);
+    background:linear-gradient(135deg,#f4fff7,#edfdf5,#ffffff);
 
     color:#1f2937;
 
-    min-height:100vh;
+    overflow-x:hidden;
+
 }
 
-/* ================= NAVBAR ================= */
+/* ================= HEADER ================= */
 
 header{
 
@@ -32,37 +37,42 @@ header{
 
     left:0;
 
+    z-index:999;
+
     display:flex;
 
     justify-content:space-between;
 
     align-items:center;
 
-    padding:22px 9%;
+    padding:18px 8%;
 
-    backdrop-filter:blur(18px);
+    background:rgba(255,255,255,.75);
 
-    background:rgba(255,255,255,.45);
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
 
     border-bottom:1px solid rgba(255,255,255,.3);
 
-    z-index:999;
 }
 
 .logo{
 
-    font-size:30px;
+    font-size:32px;
 
     font-weight:700;
 
-    color:#17b978;
+    color:#10b981;
+
 }
 
 nav{
 
     display:flex;
 
-    gap:35px;
+    gap:40px;
+
 }
 
 nav a{
@@ -74,13 +84,40 @@ nav a{
     font-weight:500;
 
     transition:.3s;
+
 }
 
 nav a:hover{
 
-    color:#17b978;
+    color:#10b981;
+
 }
 
+.login-btn{
+
+    text-decoration:none;
+
+    padding:12px 24px;
+
+    background:#10b981;
+
+    color:white;
+
+    border-radius:50px;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.login-btn:hover{
+
+    background:#059669;
+
+    transform:translateY(-2px);
+
+}
 /* ================= HERO ================= */
 
 .hero{
@@ -89,50 +126,46 @@ nav a:hover{
 
     min-height:100vh;
 
-    display:flex;
+    padding:140px 8% 80px;
+
+    display:grid;
+
+    grid-template-columns:1.1fr .9fr;
 
     align-items:center;
 
-    justify-content:space-between;
+    gap:70px;
 
-    padding:140px 9% 80px;
-
-    gap:80px;
 }
 
-.hero-left{
-
-    flex:1;
-}
-
-.tag{
+.hero-left .tag{
 
     display:inline-block;
 
-    background:#d6fff0;
+    background:#d1fae5;
 
-    color:#0f9b62;
+    color:#059669;
 
-    padding:10px 20px;
+    padding:12px 24px;
 
-    border-radius:999px;
+    border-radius:40px;
 
-    font-size:14px;
+    font-weight:600;
 
     margin-bottom:25px;
 
-    font-weight:600;
 }
 
 .hero h1{
 
-    font-size:58px;
+    font-size:68px;
 
-    line-height:1.2;
+    line-height:1.15;
 
-    margin-bottom:25px;
+    margin-bottom:30px;
 
-    color:#16302b;
+    color:#1f2937;
+
 }
 
 .hero p{
@@ -141,317 +174,324 @@ nav a:hover{
 
     line-height:1.8;
 
-    color:#5b6570;
+    color:#6b7280;
 
-    max-width:650px;
+    max-width:620px;
 
-    margin-bottom:40px;
 }
-/* ================= BUTTON ================= */
 
-.buttons{
+.hero-buttons{
+
+    margin-top:40px;
 
     display:flex;
 
     gap:20px;
 
-    flex-wrap:wrap;
 }
 
-.btn-main{
+.btn-primary{
 
-    padding:16px 36px;
+    display:inline-block;
 
-    border:none;
+    padding:16px 34px;
 
     border-radius:50px;
 
-    background:#17b978;
+    background:#10b981;
 
     color:white;
 
-    font-size:16px;
+    text-decoration:none;
 
     font-weight:600;
 
-    cursor:pointer;
+    transition:.3s;
 
-    transition:.35s;
 }
 
-.btn-main:hover{
+.btn-primary:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-4px);
 
-    box-shadow:0 18px 35px rgba(23,185,120,.35);
+    background:#059669;
+
 }
 
-.btn-outline{
+.btn-secondary{
 
-    padding:16px 36px;
+    display:inline-block;
+
+    padding:16px 34px;
 
     border-radius:50px;
 
-    background:white;
+    text-decoration:none;
 
-    border:2px solid #17b978;
+    color:#10b981;
 
-    color:#17b978;
-
-    font-size:16px;
+    border:2px solid #10b981;
 
     font-weight:600;
 
-    cursor:pointer;
+    transition:.3s;
 
-    transition:.35s;
 }
 
-.btn-outline:hover{
+.btn-secondary:hover{
 
-    background:#17b978;
+    background:#10b981;
 
     color:white;
+
 }
 
-/* ================= RIGHT CARD ================= */
+/* ===== Card ===== */
 
 .hero-right{
-
-    flex:1;
 
     display:flex;
 
     justify-content:center;
+
 }
 
-.card{
+.hero-card{
 
-    width:420px;
+    width:360px;
 
-    background:rgba(255,255,255,.6);
+    background:rgba(255,255,255,.85);
 
-    backdrop-filter:blur(20px);
+    backdrop-filter:blur(18px);
 
     border-radius:30px;
 
     padding:45px;
 
-    box-shadow:
+    text-align:center;
 
-    0 25px 60px rgba(0,0,0,.08);
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
 
-    border:1px solid rgba(255,255,255,.45);
-
-    transition:.4s;
 }
 
-.card:hover{
+.hero-card i{
 
-    transform:translateY(-10px);
+    font-size:60px;
+
+    color:#10b981;
+
+    margin-bottom:20px;
+
 }
 
-.card h3{
+.hero-card h3{
 
-    font-size:28px;
+    font-size:30px;
 
-    margin-bottom:25px;
+    margin-bottom:15px;
 
-    color:#17b978;
 }
 
-.card p{
+.hero-card p{
 
-    font-size:17px;
+    color:#6b7280;
 
     line-height:1.8;
 
-    color:#59636e;
 }
 /* ================= FEATURES ================= */
 
 .features{
 
-    width:100%;
-
-    padding:80px 9%;
+    padding:90px 8%;
 
     display:grid;
 
     grid-template-columns:repeat(3,1fr);
 
     gap:30px;
+
 }
 
 .feature{
 
-    background:rgba(255,255,255,.65);
-
-    backdrop-filter:blur(18px);
+    background:white;
 
     border-radius:25px;
 
-    padding:40px 30px;
+    padding:40px;
 
     text-align:center;
 
+    box-shadow:0 15px 35px rgba(0,0,0,.06);
+
     transition:.35s;
 
-    border:1px solid rgba(255,255,255,.45);
-
-    box-shadow:0 20px 45px rgba(0,0,0,.06);
 }
 
 .feature:hover{
 
     transform:translateY(-10px);
 
-    box-shadow:0 30px 60px rgba(23,185,120,.18);
 }
 
 .feature i{
 
-    font-size:48px;
+    font-size:55px;
 
-    color:#17b978;
+    color:#10b981;
 
     margin-bottom:20px;
+
 }
 
 .feature h3{
 
-    font-size:24px;
+    font-size:26px;
 
     margin-bottom:15px;
 
-    color:#16302b;
+    color:#1f2937;
+
 }
 
 .feature p{
 
-    color:#5b6570;
+    color:#6b7280;
 
     line-height:1.8;
+
+}
+/* ================= AI SECTION ================= */
+
+.ai-section{
+
+    padding:100px 8%;
+
 }
 
-/* ================= FOOTER ================= */
+.ai-content{
 
-footer{
+    display:grid;
 
-    margin-top:60px;
+    grid-template-columns:1fr 1fr;
 
-    padding:35px;
+    gap:60px;
 
-    text-align:center;
+    align-items:center;
+
+}
+
+.ai-text h2{
+
+    font-size:46px;
+
+    margin:20px 0;
+
+    color:#1f2937;
+
+}
+
+.ai-text p{
 
     color:#6b7280;
 
-    font-size:15px;
-}
-/* ================= RESPONSIVE ================= */
+    line-height:1.8;
 
-@media (max-width:992px){
-
-    header{
-
-        flex-direction:column;
-
-        gap:20px;
-
-        padding:20px;
-    }
-
-    nav{
-
-        flex-wrap:wrap;
-
-        justify-content:center;
-
-        gap:20px;
-    }
-
-    .hero{
-
-        flex-direction:column;
-
-        text-align:center;
-
-        padding-top:180px;
-    }
-
-    .hero h1{
-
-        font-size:42px;
-    }
-
-    .hero p{
-
-        margin:auto;
-
-        margin-bottom:35px;
-    }
-
-    .buttons{
-
-        justify-content:center;
-    }
-
-    .card{
-
-        width:100%;
-    }
-
-    .features{
-
-        grid-template-columns:1fr;
-    }
+    margin-bottom:35px;
 
 }
 
-/* ================= ANIMATION ================= */
+.ai-image{
 
-.hero-left,
-.hero-right,
-.feature{
+    display:flex;
 
-    animation:fadeUp .8s ease both;
+    justify-content:center;
 
-}
-
-@keyframes fadeUp{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(40px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
+    align-items:center;
 
 }
 
-/* ================= SCROLL ================= */
+.ai-image i{
 
-html{
+    font-size:180px;
 
-    scroll-behavior:smooth;
+    color:#10b981;
+
+    background:white;
+
+    width:300px;
+
+    height:300px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
 
 }
 
-/* ================= SELECTION ================= */
+/* ================= SKILLS ================= */
 
-::selection{
+.skills{
 
-    background:#17b978;
+    padding:100px 8%;
 
-    color:white;
+    text-align:center;
+
+}
+
+.skills h2{
+
+    font-size:42px;
+
+    margin-bottom:50px;
+
+}
+
+.skill-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:30px;
+
+}
+
+.skill-card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    font-size:42px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.06);
+
+    transition:.3s;
+
+}
+
+.skill-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.skill-card h3{
+
+    margin-top:20px;
+
+    font-size:22px;
+
+    color:#1f2937;
 
 }
