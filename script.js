@@ -396,7 +396,92 @@ navLinks.forEach(function(link) {
     // ------------------------------
     // 8. HOÀN TẤT KẾT NỐI
     // ------------------------------
+// ==============================
+// GÓC KỸ NĂNG - HIỂN THỊ NỘI DUNG
+// ==============================
 
+const skillCards = document.querySelectorAll(".skill-card");
+
+const skillContents = {
+    "Áp lực học tập": `
+        <h3>📚 Áp lực học tập</h3>
+        <p>
+            Khi cảm thấy quá nhiều bài vở, điểm số hoặc kỳ vọng khiến bạn mệt mỏi,
+            hãy thử chia nhỏ công việc thành từng bước.</p>
+        <p><strong>Một bước nhỏ bạn có thể thử:</strong>
+        Chọn một việc quan trọng nhất hôm nay và hoàn thành nó trước.</p>
+        <p>Đừng cố giải quyết tất cả cùng một lúc. Bạn có thể tiến từng bước nhỏ 🌱</p>
+    `,
+
+    "Gia đình": `
+        <h3>👨‍👩‍👧 Gia đình</h3>
+        <p>
+            Những khác biệt với gia đình đôi khi khiến bạn khó nói ra cảm xúc của mình.
+            Hãy thử lựa chọn một thời điểm cả hai bên đều bình tĩnh để chia sẻ.</p>
+        <p><strong>Gợi ý:</strong> Nói về cảm xúc của bản thân thay vì chỉ nói
+        người khác đã làm sai điều gì.</p>
+    `,
+
+    "Bạn bè": `
+        <h3>🤝 Bạn bè</h3>
+        <p>
+            Tình bạn có thể mang đến rất nhiều niềm vui nhưng cũng có lúc khiến bạn
+            buồn hoặc thất vọng.</p>
+        <p>
+            Hãy cho bản thân một chút thời gian để hiểu điều mình thực sự mong muốn
+            trong mối quan hệ đó.</p>
+    `,
+
+    "Kỹ năng thích ứng": `
+        <h3>🌱 Kỹ năng thích ứng</h3>
+        <p>
+            Thay đổi là một phần tự nhiên của cuộc sống. Khi hoàn cảnh thay đổi,
+            bạn có thể bắt đầu bằng việc quan sát, hiểu vấn đề và lựa chọn cách
+            phản ứng phù hợp.</p>
+        <p>
+            <strong>Mẹo nhỏ:</strong> Tập trung vào điều bạn có thể kiểm soát
+            thay vì cố kiểm soát tất cả mọi thứ.</p>
+    `,
+
+    "Định hướng tương lai": `
+        <h3>🎯 Định hướng tương lai</h3>
+        <p>
+            Bạn không nhất thiết phải biết chính xác tương lai của mình ngay hôm nay.</p>
+        <p>
+            Hãy bắt đầu bằng việc tìm hiểu điều mình thích, điểm mạnh của bản thân
+            và những mục tiêu nhỏ trong thời gian gần.</p>
+        <p>
+            Mỗi bước nhỏ hôm nay đều có thể giúp bạn hiểu bản thân hơn 🌿</p>
+    `
+};
+
+skillCards.forEach(card => {
+
+    card.style.cursor = "pointer";
+
+    card.addEventListener("click", function () {
+
+        const title = this.querySelector("h3").textContent.trim();
+
+        let detailBox = document.querySelector(".skill-detail");
+
+        if (!detailBox) {
+            detailBox = document.createElement("div");
+            detailBox.className = "skill-detail";
+
+            document.querySelector(".skill-grid").after(detailBox);
+        }
+
+        detailBox.innerHTML =
+            skillContents[title] ||
+            "<p>Đang cập nhật nội dung cho kỹ năng này 🌱</p>";
+
+        detailBox.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    });
+});
     console.log(
         "🌿 Hộp thư tâm lý - JavaScript đã hoạt động."
     );
