@@ -725,218 +725,203 @@ footer p{
     border-color: #10b981;
     box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.08);
 }
-/* =================================
-   BẢNG TỰ SOI - KHU VỰC NỔI BẬT
-================================= */
+/* =========================================
+   KHU VỰC BẢNG TỰ SOI
+========================================= */
 
 .test-link {
-    width: min(1000px, 90%);
-    margin: 80px auto;
-    padding: 55px 40px;
+    width: 92%;
+    max-width: 1050px;
+
+    /* tạo khoảng cách rõ với Nhật ký */
+    margin: 100px auto 80px;
+
+    padding: 70px 60px;
 
     box-sizing: border-box;
+
     text-align: center;
 
     background: linear-gradient(
         135deg,
-        #e8faf3,
+        #e4faf1,
         #ffffff
     );
 
-    border: 2px solid #cceee2;
-    border-radius: 32px;
+    border: 2px solid #bcebd9;
+    border-radius: 35px;
 
     box-shadow:
-        0 20px 60px rgba(16, 185, 129, 0.14);
+        0 18px 55px rgba(16, 185, 129, 0.16);
 
     position: relative;
     overflow: hidden;
 }
 
-/* Trang trí nền */
-
-.test-link::before {
-    content: "";
-    position: absolute;
-
-    width: 230px;
-    height: 230px;
-
-    border-radius: 50%;
-
-    background: rgba(16, 185, 129, 0.08);
-
-    top: -110px;
-    right: -70px;
-}
-
-.test-link::after {
-    content: "";
-    position: absolute;
-
-    width: 180px;
-    height: 180px;
-
-    border-radius: 50%;
-
-    background: rgba(16, 185, 129, 0.06);
-
-    bottom: -100px;
-    left: -60px;
-}
-
-/* Icon */
+/* khoảng cách giữa các thành phần */
 
 .test-icon {
-    position: relative;
-    z-index: 2;
-
-    font-size: 48px;
-    margin-bottom: 10px;
+    font-size: 58px;
+    margin-bottom: 22px;
 }
-
-/* Nhãn */
 
 .test-label {
-    position: relative;
-    z-index: 2;
-
     display: inline-block;
 
-    padding: 7px 14px;
+    margin-bottom: 24px;
 
-    border-radius: 30px;
-
-    background: #d9f7eb;
-    color: #079669;
-
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-/* Tiêu đề */
-
-.test-link h2 {
-    position: relative;
-    z-index: 2;
-
-    margin: 18px 0 5px;
-
-    font-size: 32px;
-    color: #123c35;
-}
-
-/* Tiêu đề phụ */
-
-.test-link h3 {
-    position: relative;
-    z-index: 2;
-
-    margin: 0 0 15px;
-
-    font-size: 23px;
-    color: #10a879;
-}
-
-/* Mô tả */
-
-.test-link p {
-    position: relative;
-    z-index: 2;
-
-    max-width: 680px;
-
-    margin: 0 auto 30px;
-
-    color: #5f706b;
-
-    line-height: 1.8;
-    font-size: 16px;
-}
-
-/* Nút */
-
-.test-button {
-    position: relative;
-    z-index: 2;
-
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 12px;
-
-    padding: 16px 32px;
+    padding: 9px 20px;
 
     background: #10b981;
     color: white;
 
-    border-radius: 16px;
+    border-radius: 50px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.test-link h2 {
+    margin: 0 0 18px;
+
+    font-size: 38px;
+    line-height: 1.35;
+
+    color: #123c35;
+}
+
+.test-link h3 {
+    margin: 0 0 25px;
+
+    font-size: 25px;
+    line-height: 1.5;
+
+    color: #079669;
+}
+
+.test-link p {
+    max-width: 720px;
+
+    margin: 0 auto 38px;
+
+    font-size: 16px;
+    line-height: 2;
+
+    color: #60716c;
+}
+
+/* =========================================
+   Ô LINK LỚN
+========================================= */
+
+.test-button {
+    display: flex;
+
+    width: min(500px, 90%);
+
+    min-height: 70px;
+
+    margin: 0 auto;
+
+    padding: 18px 30px;
+
+    box-sizing: border-box;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    background: #10b981;
+
+    color: white;
+
+    border: none;
+    border-radius: 20px;
 
     text-decoration: none;
 
     font-family: Poppins, sans-serif;
-    font-size: 16px;
+
+    font-size: 19px;
     font-weight: 700;
 
     box-shadow:
-        0 10px 25px rgba(16, 185, 129, 0.25);
+        0 12px 30px rgba(16, 185, 129, 0.25);
 
     transition: all 0.25s ease;
 }
 
 .test-button span {
-    font-size: 22px;
+    font-size: 27px;
 }
 
 .test-button:hover {
     transform: translateY(-4px);
 
     box-shadow:
-        0 15px 30px rgba(16, 185, 129, 0.32);
+        0 18px 38px rgba(16, 185, 129, 0.32);
 }
 
-/* Dòng nhỏ */
-
 .test-link small {
-    position: relative;
-    z-index: 2;
-
     display: block;
 
-    margin-top: 18px;
+    margin-top: 25px;
 
-    color: #82908c;
+    color: #87948f;
 
     font-size: 12px;
 }
 
 
-/* MOBILE */
+/* =========================================
+   TẠO KHOẢNG CÁCH VỚI NHẬT KÝ
+========================================= */
+
+#diary-area {
+    margin-bottom: 30px;
+}
+
+#diary-area + .test-link {
+    margin-top: 110px;
+}
+
+
+/* =========================================
+   ĐIỆN THOẠI
+========================================= */
 
 @media (max-width: 600px) {
 
     .test-link {
         width: 92%;
-        padding: 40px 22px;
+
+        padding: 50px 22px;
+
+        margin-top: 70px;
     }
 
     .test-link h2 {
-        font-size: 25px;
+        font-size: 28px;
+        line-height: 1.4;
     }
 
     .test-link h3 {
-        font-size: 19px;
+        font-size: 21px;
+        line-height: 1.5;
     }
 
     .test-link p {
         font-size: 14px;
+        line-height: 1.9;
     }
 
     .test-button {
         width: 100%;
-        box-sizing: border-box;
+        min-height: 65px;
+
+        font-size: 16px;
     }
 }
