@@ -452,8 +452,50 @@ const skillContents = {
             và những mục tiêu nhỏ trong thời gian gần.</p>
         <p>
             Mỗi bước nhỏ hôm nay đều có thể giúp bạn hiểu bản thân hơn 🌿</p>
-    `
-};
+    `,
+    "Giao tiếp": `
+        <h3>💬 Giao tiếp</h3>
+
+        <p><strong>Bạn có thể đang gặp:</strong><br>
+        Khó nói ra suy nghĩ, ngại từ chối hoặc lo rằng người khác sẽ hiểu sai mình.</p>
+
+        <p><strong>Bạn có thể thử:</strong><br>
+        Nói rõ điều mình cảm thấy, lắng nghe người đối diện và lựa chọn cách diễn đạt
+        bình tĩnh, tôn trọng.</p>
+
+        <p><strong>🌱 Một bước nhỏ hôm nay:</strong><br>
+        Hãy thử nói ra một điều bạn thường giữ trong lòng theo cách nhẹ nhàng và chân thành.</p>
+    `,
+
+    "Quản lý cảm xúc": `
+        <h3>🧠 Quản lý cảm xúc</h3>
+
+        <p><strong>Bạn có thể đang gặp:</strong><br>
+        Cảm thấy buồn, lo lắng, tức giận hoặc khó tập trung khi có quá nhiều chuyện
+        xảy ra cùng lúc.</p>
+
+        <p><strong>Bạn có thể thử:</strong><br>
+        Gọi tên cảm xúc của mình, tạm dừng trước khi phản ứng và viết ra điều đang
+        khiến bạn khó chịu.</p>
+
+        <p><strong>🌱 Một bước nhỏ hôm nay:</strong><br>
+        Dành vài phút viết câu: “Điều đang khiến mình cảm thấy như vậy là...”</p>
+    `,
+
+    "Quản lý thời gian": `
+        <h3>⏰ Quản lý thời gian</h3>
+
+        <p><strong>Bạn có thể đang gặp:</strong><br>
+        Có quá nhiều việc phải làm nhưng không biết nên bắt đầu từ đâu,
+        dễ trì hoãn hoặc cảm thấy cả ngày vẫn chưa hoàn thành được gì.</p>
+
+        <p><strong>Bạn có thể thử:</strong><br>
+        Chọn 1–3 việc quan trọng nhất trong ngày và chia chúng thành những bước nhỏ.</p>
+
+        <p><strong>🌱 Một bước nhỏ hôm nay:</strong><br>
+        Chọn một việc quan trọng nhất và dành khoảng thời gian đầu tiên trong ngày
+        để hoàn thành nó.</p>
+    `};
 
 skillCards.forEach(card => {
 
