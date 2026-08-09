@@ -314,9 +314,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     });
-// ==============================
+// ------------------------------
 // 7. MENU ĐIỀU HƯỚNG
-// ==============================
+// ------------------------------
 
 const navLinks = document.querySelectorAll("nav a");
 
@@ -328,7 +328,6 @@ navLinks.forEach(function(link) {
 
         const text = link.textContent.trim();
 
-        // TRANG CHỦ
         if (text === "Trang chủ") {
 
             window.scrollTo({
@@ -338,7 +337,6 @@ navLinks.forEach(function(link) {
 
         }
 
-        // TÂM SỰ
         else if (text === "Tâm sự") {
 
             const sharing = document.querySelector("#sharing-area");
@@ -352,7 +350,6 @@ navLinks.forEach(function(link) {
 
         }
 
-        // GÓC KỸ NĂNG
         else if (text === "Góc kỹ năng") {
 
             const features = document.querySelector(".features");
@@ -366,7 +363,6 @@ navLinks.forEach(function(link) {
 
         }
 
-        // NHẬT KÝ
         else if (text === "Nhật ký") {
 
             const diary = document.querySelector("#diary-area");
@@ -380,13 +376,12 @@ navLinks.forEach(function(link) {
 
         }
 
-        // LIÊN HỆ
         else if (text === "Liên hệ") {
 
-            const contact = document.querySelector("#contact-area");
+            const footer = document.querySelector("footer");
 
-            if (contact) {
-                contact.scrollIntoView({
+            if (footer) {
+                footer.scrollIntoView({
                     behavior: "smooth",
                     block: "start"
                 });
@@ -397,63 +392,6 @@ navLinks.forEach(function(link) {
     });
 
 });
-
-
-// ==============================
-// NÚT KHÁM PHÁ
-// ==============================
-
-const exploreButton = document.querySelector(".btn-secondary");
-
-if (exploreButton) {
-
-    exploreButton.addEventListener("click", function(event) {
-
-        event.preventDefault();
-
-        const features = document.querySelector(".features");
-
-        if (features) {
-
-            features.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-        }
-
-    });
-
-}
-
-
-// ==============================
-// NÚT BẮT ĐẦU TÂM SỰ
-// ==============================
-
-const startButton = document.querySelector(".btn-primary");
-
-if (startButton) {
-
-    startButton.addEventListener("click", function(event) {
-
-        event.preventDefault();
-
-        const sharing = document.querySelector("#sharing-area");
-
-        if (sharing) {
-
-            sharing.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-        }
-
-    });
-
-}
-
    
     // ------------------------------
     // 8. HOÀN TẤT KẾT NỐI
