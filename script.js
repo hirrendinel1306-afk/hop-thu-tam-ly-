@@ -314,65 +314,147 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     });
+// ==============================
+// 7. MENU ĐIỀU HƯỚNG
+// ==============================
 
+const navLinks = document.querySelectorAll("nav a");
 
-    // ------------------------------
-    // 7. MENU ĐIỀU HƯỚNG
-    // ------------------------------
+navLinks.forEach(function(link) {
 
-    const navLinks = document.querySelectorAll("nav a");
+    link.addEventListener("click", function(event) {
 
-    navLinks.forEach(function (link) {
+        event.preventDefault();
 
-        link.addEventListener("click", function (event) {
+        const text = link.textContent.trim();
 
-            const text = link.textContent.trim();
+        // TRANG CHỦ
+        if (text === "Trang chủ") {
 
-            if (link.getAttribute("href") === "#") {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
 
-                event.preventDefault();
+        }
 
-                if (text === "Tâm sự") {
+        // TÂM SỰ
+        else if (text === "Tâm sự") {
 
-                    sharingSection.style.display = "block";
+            const sharing = document.querySelector("#sharing-area");
 
-                    sharingSection.scrollIntoView({
-                        behavior: "smooth"
-                    });
-
-                }
-
-                else if (text === "Góc kỹ năng") {
-
-                    const features =
-                        document.querySelector(".features");
-
-                    if (features) {
-
-                        features.scrollIntoView({
-                            behavior: "smooth"
-                        });
-
-                    }
-
-                }
-
-                else {
-
-                    window.scrollTo({
-                        top: 0,
-                        behavior: "smooth"
-                    });
-
-                }
-
+            if (sharing) {
+                sharing.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
             }
 
-        });
+        }
+
+        // GÓC KỸ NĂNG
+        else if (text === "Góc kỹ năng") {
+
+            const features = document.querySelector(".features");
+
+            if (features) {
+                features.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+
+        }
+
+        // NHẬT KÝ
+        else if (text === "Nhật ký") {
+
+            const diary = document.querySelector("#diary-area");
+
+            if (diary) {
+                diary.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+
+        }
+
+        // LIÊN HỆ
+        else if (text === "Liên hệ") {
+
+            const contact = document.querySelector("#contact-area");
+
+            if (contact) {
+                contact.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+
+        }
 
     });
 
+});
 
+
+// ==============================
+// NÚT KHÁM PHÁ
+// ==============================
+
+const exploreButton = document.querySelector(".btn-secondary");
+
+if (exploreButton) {
+
+    exploreButton.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        const features = document.querySelector(".features");
+
+        if (features) {
+
+            features.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+
+    });
+
+}
+
+
+// ==============================
+// NÚT BẮT ĐẦU TÂM SỰ
+// ==============================
+
+const startButton = document.querySelector(".btn-primary");
+
+if (startButton) {
+
+    startButton.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        const sharing = document.querySelector("#sharing-area");
+
+        if (sharing) {
+
+            sharing.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+
+    });
+
+}
+
+   
     // ------------------------------
     // 8. HOÀN TẤT KẾT NỐI
     // ------------------------------
