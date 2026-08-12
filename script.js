@@ -259,53 +259,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const sendButton = document.getElementById("send-sharing");
     const response = document.getElementById("sharing-response");
+sendButton.addEventListener("click", async function () {
 
-    sendButton.addEventListener("click", function () {
+    const message = input.value.trim();
 
-        const message = input.value.trim();
-
-        if (message === "") {
-
-            response.style.display = "block";
-
-            response.innerHTML = `
-                <div class="response-title">
-                    🌱 Viết một chút nhé
-                </div>
-
-                Bạn có thể bắt đầu bằng một điều nhỏ nhất
-                đang xuất hiện trong suy nghĩ của mình.
-            `;
-
-            return;
-
-        }
-
-
-        // Phản hồi đồng hành cơ bản
+    if (message === "") {
 
         response.style.display = "block";
 
         response.innerHTML = `
             <div class="response-title">
-                💚 Cảm ơn bạn đã chia sẻ.
+                🌱 Viết một chút nhé
             </div>
 
-            Những điều bạn đang cảm nhận đều đáng được
-            lắng nghe. Hãy thử cho bản thân một chút thời gian
-            để nhìn lại điều gì đang khiến bạn bận tâm nhất.
-
-            <br><br>
-
-            <strong>Một bước nhỏ bạn có thể thử:</strong>
-            hãy chọn một việc trong hôm nay mà bạn có thể
-            chủ động giải quyết trước, thay vì cố gắng xử lý
-            tất cả cùng lúc.
-
-            <br><br>
-
-            Bạn không cần phải giải quyết mọi thứ ngay lập tức.
-            Hãy đi từng bước một nhé 🌿
+            <p>
+                Bạn có thể bắt đầu bằng điều đang xuất hiện
+                nhiều nhất trong suy nghĩ của mình.
+            </p>
         `;
 
         response.scrollIntoView({
@@ -313,7 +283,86 @@ document.addEventListener("DOMContentLoaded", function () {
             block: "center"
         });
 
+        return;
+    }
+
+    // Hiển thị trạng thái đang xử lý
+    response.style.display = "block";
+
+    response.innerHTML = `
+        <div class="response-title">
+            🌿 Hộp thư đang lắng nghe...
+        </div>
+
+        <p>
+            Mình đang đọc những điều bạn vừa chia sẻ.
+            Cho mình một chút thời gian nhé.
+        </p>
+    `;
+
+    response.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
     });
+
+    try {
+
+        const result = await fetch(
+            "https://hop-thu-tam-ly-ai.hirren-dinel1306.workers.dev",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    message: message
+                })
+            }
+        );
+
+        const data = await result.json();
+
+        if (!result.ok || !data.reply) {
+            throw new Error("AI không trả về hồi âm.");
+        }
+
+        // Hiển thị hồi âm do AI tạo
+        response.innerHTML = `
+            <div class="response-title">
+                💚 Hồi âm dành cho bạn
+            </div>
+
+            <div class="response-message">
+                ${data.reply.replace(/\n/g, "<br>")}
+            </div>
+        `;
+
+        response.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    } catch (error) {
+
+        console.error("AI Error:", error);
+
+        response.innerHTML = `
+            <div class="response-title">
+                🌿 Hộp thư đang gặp một chút trục trặc
+            </div>
+
+            <p>
+                Hiện tại mình chưa thể gửi hồi âm.
+                Bạn thử lại sau một chút nhé.
+            </p>
+        `;
+
+    }
+
+});
+  
 // ------------------------------
 // 7. MENU ĐIỀU HƯỚNG
 // ------------------------------
