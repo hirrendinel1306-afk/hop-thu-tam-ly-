@@ -637,6 +637,64 @@ document.addEventListener("keydown", (event) => {
     }
 
 });
+
+/* =========================================================
+   11. XỬ LÝ FORM ĐĂNG NHẬP — TẠM THỜI
+   ========================================================= */
+
+const loginForm =
+    document.getElementById("login-form");
+
+const loginMessage =
+    document.getElementById("login-message");
+
+
+if (loginForm) {
+
+    loginForm.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        const email =
+            document.getElementById("login-email").value.trim();
+
+        const password =
+            document.getElementById("login-password").value.trim();
+
+
+        /* Kiểm tra thông tin */
+
+        if (!email || !password) {
+
+            loginMessage.textContent =
+                "Vui lòng nhập đầy đủ thông tin 🌿";
+
+            return;
+        }
+
+
+        /* Kiểm tra email */
+
+        if (!email.includes("@")) {
+
+            loginMessage.textContent =
+                "Email chưa đúng định dạng.";
+
+            return;
+        }
+
+
+        /* Tạm thời */
+
+        loginMessage.textContent =
+            "Đang kiểm tra thông tin đăng nhập... 🌿";
+
+    });
+
+}
+
+
+
     
     /* =========================================================
        11. KIỂM TRA SCRIPT
