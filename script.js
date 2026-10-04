@@ -744,9 +744,127 @@ if (backLoginButton && registerModal && loginModal) {
 
 }
 
+/* =========================================================
+   12. ĐĂNG KÝ TÀI KHOẢN — SUPABASE
+   ========================================================= */
+
+const registerForm =
+    document.getElementById("register-form");
+
+const registerMessage =
+    document.getElementById("register-message");
+
+
+if (registerForm) {
+
+    registerForm.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        const name =
+            document.getElementById("register-name").value.trim();
+
+        const email =
+            document.getElementById("register-email").value.trim();
+
+        const password =
+            document.getElementById("register-password").value;
+
+        const confirmPassword =
+            document.getElementById("register-confirm").value;
+
+
+        /* KIỂM TRA */
+
+        if (!name || !email || !password || !confirmPassword) {
+
+            registerMessage.textContent =
+                "Vui lòng điền đầy đủ thông tin 🌿";
+
+            return;
+
+        }
+
+
+        if (password.length < 6) {
+
+            registerMessage.textContent =
+                "Mật khẩu cần có ít nhất 6 ký tự.";
+
+            return;
+
+        }
+
+
+        if (password !== confirmPassword) {
+
+            registerMessage.textContent =
+                "Mật khẩu nhập lại chưa khớp.";
+
+            return;
+
+        }
+
+
+        registerMessage.textContent =
+            "Đang tạo tài khoản... 🌱";
+
+
+        /* GỬI THÔNG TIN ĐẾN SUPABASE */
+
+        const { data, error } =
+            await supabaseClient.auth.signUp({
+
+                email: email,
+
+                password: password,
+
+                options: {
+
+                    data: {
+                        display_name: name
+                    }
+
+                }
+
+            });
+
+
+        /* XỬ LÝ LỖI */
+
+        if (error) {
+
+            console.error(error);
+
+            registerMessage.textContent =
+                "Không thể tạo tài khoản: " + error.message;
+
+            return;
+
+        }
+
+
+        /* ĐĂNG KÝ THÀNH CÔNG */
+
+        console.log(
+            "🌱 Tài khoản đã được tạo:",
+            data.user
+        );
+
+
+        registerMessage.textContent =
+            "Tạo tài khoản thành công! 🌿";
+
+
+        registerForm.reset();
+
+    });
+
+}
+
 
 /* =========================================================
-   12. XỬ LÝ FORM ĐĂNG NHẬP — TẠM THỜI
+   13. XỬ LÝ ĐĂNG NHẬP — SUPABASE
    ========================================================= */
 
 const loginForm =
@@ -758,15 +876,16 @@ const loginMessage =
 
 if (loginForm) {
 
-    loginForm.addEventListener("submit", (event) => {
+    loginForm.addEventListener("submit", async (event) => {
 
         event.preventDefault();
+
 
         const email =
             document.getElementById("login-email").value.trim();
 
         const password =
-            document.getElementById("login-password").value.trim();
+            document.getElementById("login-password").value;
 
 
         if (!email || !password) {
@@ -779,30 +898,51 @@ if (loginForm) {
         }
 
 
-        if (!email.includes("@")) {
+        loginMessage.textContent =
+            "Đang đăng nhập... 🌿";
+
+
+        const { data, error } =
+            await supabaseClient.auth.signInWithPassword({
+
+                email: email,
+
+                password: password
+
+            });
+
+
+        if (error) {
+
+            console.error(error);
 
             loginMessage.textContent =
-                "Email chưa đúng định dạng.";
+                "Đăng nhập chưa thành công. " + error.message;
 
             return;
 
         }
 
 
+        console.log(
+            "🌿 Đăng nhập thành công:",
+            data.user
+        );
+
+
         loginMessage.textContent =
-            "Đang kiểm tra thông tin đăng nhập... 🌿";
+            "Đăng nhập thành công! 🌿";
 
     });
+
 
 }
 
 
 /* =========================================================
-   13. KIỂM TRA SCRIPT
+   14. KIỂM TRA SCRIPT
    ========================================================= */
 
 console.log(
     "🌿 Hộp thư tâm lý — Script đã tải thành công."
 );
-
-});    
