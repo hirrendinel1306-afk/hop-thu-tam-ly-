@@ -639,30 +639,23 @@ document.addEventListener("keydown", (event) => {
 });
 
 /* =========================================================
-   10.5. MỞ / ĐÓNG KHUNG TẠO TÀI KHOẢN
+   10.5. KHUNG TẠO TÀI KHOẢN
    ========================================================= */
 
-const registerButton =
-    document.getElementById("register-button");
-
-const registerModal =
-    document.getElementById("register-modal");
-
-const registerClose =
-    document.getElementById("register-close");
-
-const registerOverlay =
-    document.getElementById("register-overlay");
-
-const backLoginButton =
-    document.getElementById("back-login-button");
+const registerButton = document.getElementById("register-button");
+const registerModal = document.getElementById("register-modal");
+const registerClose = document.getElementById("register-close");
+const registerOverlay = document.getElementById("register-overlay");
+const backLoginButton = document.getElementById("back-login-button");
 
 
-/* Mở khung đăng ký */
+/* MỞ KHUNG ĐĂNG KÝ */
 
 if (registerButton && registerModal) {
 
-    registerButton.addEventListener("click", () => {
+    registerButton.addEventListener("click", function (event) {
+
+        event.preventDefault();
 
         /* Đóng khung đăng nhập */
 
@@ -681,11 +674,11 @@ if (registerButton && registerModal) {
 }
 
 
-/* Đóng bằng nút X */
+/* ĐÓNG KHUNG ĐĂNG KÝ */
 
 if (registerClose && registerModal) {
 
-    registerClose.addEventListener("click", () => {
+    registerClose.addEventListener("click", function () {
 
         registerModal.classList.remove("show");
 
@@ -696,11 +689,11 @@ if (registerClose && registerModal) {
 }
 
 
-/* Đóng khi bấm ra ngoài */
+/* BẤM RA NGOÀI ĐỂ ĐÓNG */
 
 if (registerOverlay && registerModal) {
 
-    registerOverlay.addEventListener("click", () => {
+    registerOverlay.addEventListener("click", function () {
 
         registerModal.classList.remove("show");
 
@@ -711,11 +704,11 @@ if (registerOverlay && registerModal) {
 }
 
 
-/* Quay lại đăng nhập */
+/* QUAY LẠI ĐĂNG NHẬP */
 
 if (backLoginButton && registerModal && loginModal) {
 
-    backLoginButton.addEventListener("click", () => {
+    backLoginButton.addEventListener("click", function () {
 
         registerModal.classList.remove("show");
 
