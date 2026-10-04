@@ -1,19 +1,18 @@
 /* =========================================================
-   HỘP THƯ TÂM LÝ
-   RESPONSIVE STYLE
+   HỘP THƯ TÂM LÝ — STYLE.CSS
+   Bản đồng bộ với index.html hiện tại
    Desktop + Tablet + Mobile
    ========================================================= */
 
-/* =========================
-   1. RESET
-   ========================= */
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+/* =========================================================
+   1. RESET
+   ========================================================= */
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -24,29 +23,29 @@ html {
 body {
     width: 100%;
     min-width: 0;
-    overflow-x: hidden;
+
     font-family: "Poppins", Arial, sans-serif;
-    color: #23413a;
-    background: #f7fffc;
+
+    color: #374151;
+    background: #ffffff;
+
     line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+
+    overflow-x: hidden;
+}
+
+body,
+section,
+main,
+header,
+footer,
+div {
+    min-width: 0;
 }
 
 img {
-    display: block;
     max-width: 100%;
-    height: auto;
-}
-
-button,
-input,
-textarea {
-    font: inherit;
-}
-
-button {
-    cursor: pointer;
+    display: block;
 }
 
 a {
@@ -54,31 +53,29 @@ a {
     text-decoration: none;
 }
 
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
 h1,
 h2,
 h3,
-h4,
 p,
 a,
-span,
-button {
-    overflow-wrap: anywhere;
-}
-
-section {
-    width: 100%;
-    min-width: 0;
-}
-
-.container {
-    width: min(1180px, 92%);
-    margin: 0 auto;
+span {
+    overflow-wrap: break-word;
 }
 
 
-/* =========================
+/* =========================================================
    2. HEADER
-   ========================= */
+   ========================================================= */
 
 #main-header {
     position: fixed;
@@ -92,29 +89,34 @@ section {
     display: flex;
     align-items: center;
 
-    padding: 0 5%;
+    padding: 0 6%;
 
     background: rgba(255, 255, 255, 0.96);
-    border-bottom: 1px solid rgba(50, 150, 120, 0.10);
 
-    box-shadow: 0 4px 20px rgba(30, 100, 80, 0.06);
+    border-bottom: 1px solid rgba(16, 185, 129, 0.08);
+
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.05);
 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
 
+
+/* Logo */
+
 .logo {
     flex: 0 0 auto;
 
-    display: flex;
-    align-items: center;
+    color: #10b981;
 
-    color: #238b70;
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 700;
 
     white-space: nowrap;
 }
+
+
+/* Menu */
 
 #main-nav {
     flex: 1 1 auto;
@@ -123,19 +125,26 @@ section {
     align-items: center;
     justify-content: flex-end;
 
-    gap: 26px;
+    gap: 27px;
 
-    margin-left: 30px;
+    margin-left: 35px;
+
+    min-width: 0;
 }
 
 #main-nav a {
     position: relative;
 
-    color: #365d53;
+    flex: 0 0 auto;
+
+    color: #374151;
+
     font-size: 14px;
     font-weight: 500;
 
     white-space: nowrap;
+
+    line-height: 1.5;
 
     transition:
         color 0.25s ease,
@@ -143,7 +152,7 @@ section {
 }
 
 #main-nav a:hover {
-    color: #1f9877;
+    color: #059669;
     transform: translateY(-1px);
 }
 
@@ -151,15 +160,16 @@ section {
     content: "";
 
     position: absolute;
+
     left: 0;
-    bottom: -6px;
+    bottom: -7px;
 
     width: 0;
     height: 2px;
 
     border-radius: 10px;
 
-    background: #42b995;
+    background: #10b981;
 
     transition: width 0.25s ease;
 }
@@ -169,7 +179,7 @@ section {
 }
 
 
-/* Login */
+/* Đăng nhập */
 
 .login-btn {
     flex: 0 0 auto;
@@ -178,15 +188,14 @@ section {
     align-items: center;
     justify-content: center;
 
-    min-height: 42px;
-    padding: 9px 18px;
+    min-height: 44px;
 
-    margin-left: 22px;
+    margin-left: 24px;
+    padding: 9px 20px;
 
-    border: 1px solid #42b995;
     border-radius: 999px;
 
-    background: #42b995;
+    background: #10b981;
     color: #ffffff;
 
     font-size: 14px;
@@ -194,20 +203,24 @@ section {
 
     white-space: nowrap;
 
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.18);
+
     transition:
+        background 0.25s ease,
         transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
+        box-shadow 0.25s ease;
 }
 
 .login-btn:hover {
-    background: #319e7b;
+    background: #059669;
+
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(66, 185, 149, 0.25);
+
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.25);
 }
 
 
-/* Mobile menu button */
+/* Nút menu điện thoại */
 
 .menu-toggle {
     display: none;
@@ -218,120 +231,116 @@ section {
     align-items: center;
     justify-content: center;
 
-    flex: 0 0 42px;
-
-    border: 1px solid #d5eee5;
+    border: 1px solid #d1fae5;
     border-radius: 12px;
 
-    background: #f1fbf7;
-    color: #238b70;
+    background: #ecfdf5;
+    color: #059669;
 
-    font-size: 20px;
-
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
-}
-
-.menu-toggle:hover {
-    background: #e2f6ef;
-}
-
-.menu-toggle:active {
-    transform: scale(0.96);
+    font-size: 19px;
 }
 
 
-/* =========================
+/* =========================================================
    3. HERO
-   ========================= */
+   ========================================================= */
 
-#home {
+.hero {
+    width: 100%;
     min-height: 100vh;
 
-    display: flex;
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(300px, 0.75fr);
+
     align-items: center;
 
+    gap: 70px;
+
     padding:
-        125px
-        7%
+        130px
+        8%
         80px;
 
     background:
         radial-gradient(
-            circle at 10% 20%,
-            rgba(117, 216, 181, 0.18),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 90% 80%,
-            rgba(125, 205, 237, 0.15),
-            transparent 30%
+            circle at 80% 30%,
+            rgba(16, 185, 129, 0.08),
+            transparent 35%
         ),
         linear-gradient(
             135deg,
-            #f7fffc 0%,
-            #effcf7 50%,
-            #f8fffd 100%
+            #ffffff 0%,
+            #f0fdf8 100%
         );
 }
 
-.hero-content {
-    width: min(1180px, 100%);
-    margin: 0 auto;
 
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
-    align-items: center;
+/* Bên trái */
 
-    gap: 70px;
-}
-
-.hero-text {
+.hero-left {
     min-width: 0;
 }
 
-.hero-text h1 {
-    max-width: 760px;
+.tag {
+    display: inline-block;
 
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 
-    color: #1d5144;
+    color: #059669;
 
-    font-size: clamp(36px, 5vw, 62px);
-    line-height: 1.12;
-    font-weight: 700;
-
-    letter-spacing: -1px;
+    font-size: 15px;
+    font-weight: 600;
 }
 
-.hero-text p {
-    max-width: 650px;
+.hero-left h1 {
+    max-width: 720px;
 
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 
-    color: #617a72;
+    color: #111827;
+
+    font-size: clamp(38px, 5vw, 62px);
+
+    line-height: 1.12;
+
+    letter-spacing: -1.2px;
+}
+
+.hero-left p {
+    max-width: 690px;
+
+    margin-bottom: 32px;
+
+    color: #6b7280;
 
     font-size: 17px;
+
     line-height: 1.85;
 }
+
+
+/* Nút Hero */
 
 .hero-buttons {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 14px;
+
+    gap: 15px;
 }
 
-.hero-buttons a,
-.hero-buttons button {
-    min-height: 48px;
+.btn-primary,
+.btn-secondary {
+    min-height: 49px;
 
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    padding: 11px 21px;
+    padding: 11px 22px;
 
     border-radius: 999px;
 
@@ -340,110 +349,142 @@ section {
 
     transition:
         transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
+        background 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-.hero-buttons a:hover,
-.hero-buttons button:hover {
+.btn-primary {
+    border: 1px solid #10b981;
+
+    background: #10b981;
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 25px rgba(16, 185, 129, 0.20);
+}
+
+.btn-primary:hover {
+    background: #059669;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 13px 28px rgba(16, 185, 129, 0.25);
+}
+
+.btn-secondary {
+    border: 1px solid #a7f3d0;
+
+    background: #ffffff;
+    color: #059669;
+}
+
+.btn-secondary:hover {
+    background: #ecfdf5;
+
     transform: translateY(-2px);
 }
 
-.hero-buttons a:first-child,
-.hero-buttons button:first-child {
-    background: #42b995;
-    color: #ffffff;
 
-    box-shadow: 0 10px 24px rgba(66, 185, 149, 0.20);
-}
+/* Hero bên phải */
 
-.hero-buttons a:first-child:hover,
-.hero-buttons button:first-child:hover {
-    background: #319e7b;
-}
+.hero-right {
+    min-width: 0;
 
-.hero-buttons a:last-child,
-.hero-buttons button:last-child {
-    border: 1px solid #bce6d8;
-    background: #ffffff;
-    color: #27896e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-card {
-    width: 100%;
-    min-width: 0;
+    width: min(100%, 430px);
 
-    padding: 42px 34px;
+    padding: 50px 35px;
 
-    border: 1px solid rgba(91, 190, 157, 0.20);
-    border-radius: 28px;
+    border: 1px solid rgba(16, 185, 129, 0.12);
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.95),
-            rgba(232, 249, 242, 0.95)
-        );
+    border-radius: 30px;
 
-    box-shadow:
-        0 25px 60px rgba(40, 120, 95, 0.12);
+    background: rgba(255, 255, 255, 0.92);
 
     text-align: center;
+
+    box-shadow:
+        0 25px 65px rgba(16, 185, 129, 0.12);
+}
+
+.hero-card > i {
+    width: 90px;
+    height: 90px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 50%;
+
+    background: #ecfdf5;
+
+    color: #10b981;
+
+    font-size: 34px;
+}
+
+.hero-card h3 {
+    margin-bottom: 12px;
+
+    color: #111827;
+
+    font-size: 29px;
+    line-height: 1.3;
 }
 
 .hero-card p {
     margin: 0;
 
-    color: #41675d;
+    color: #6b7280;
 
-    font-size: 17px;
+    font-size: 16px;
+
     line-height: 1.8;
 }
 
 
-/* =========================
-   4. SECTION COMMON
-   ========================= */
+/* =========================================================
+   4. FEATURES
+   ========================================================= */
 
-.section-title {
-    max-width: 760px;
-    margin: 0 auto 50px;
+.features {
+    width: 100%;
 
-    text-align: center;
-}
-
-.section-title h2 {
-    margin-bottom: 12px;
-
-    color: #214e43;
-
-    font-size: clamp(28px, 4vw, 40px);
-    line-height: 1.25;
-}
-
-.section-title p {
-    color: #71867f;
-    font-size: 15px;
-    line-height: 1.8;
-}
-
-
-/* =========================
-   5. FEATURES
-   ========================= */
-
-#features-area {
-    padding: 90px 6%;
+    padding: 100px 8%;
 
     background: #ffffff;
 }
 
+.features > h2 {
+    margin-bottom: 50px;
+
+    color: #111827;
+
+    text-align: center;
+
+    font-size: clamp(30px, 4vw, 44px);
+
+    line-height: 1.25;
+}
+
 .feature-grid {
     width: min(1180px, 100%);
+
     margin: 0 auto;
 
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
 
     gap: 22px;
 }
@@ -454,17 +495,20 @@ section {
 
     display: flex;
     flex-direction: column;
+    align-items: center;
 
-    padding: 30px 24px;
+    padding: 30px 22px;
 
-    border: 1px solid #e0f1eb;
+    border: 1px solid rgba(16, 185, 129, 0.10);
+
     border-radius: 22px;
 
     background: #fbfffd;
 
-    box-shadow: 0 8px 28px rgba(45, 120, 98, 0.06);
-
     text-align: center;
+
+    box-shadow:
+        0 10px 30px rgba(16, 185, 129, 0.06);
 
     transition:
         transform 0.25s ease,
@@ -475,117 +519,98 @@ section {
     transform: translateY(-5px);
 
     box-shadow:
-        0 16px 35px rgba(45, 120, 98, 0.11);
+        0 17px 38px rgba(16, 185, 129, 0.11);
+}
+
+.feature-card > i {
+    color: #10b981;
+
+    font-size: 28px;
 }
 
 .feature-card h3 {
     margin: 16px 0 9px;
 
-    color: #28594d;
+    color: #1f2937;
 
     font-size: 18px;
+
     line-height: 1.4;
 }
 
 .feature-card p {
-    margin-top: auto;
-
-    color: #74877f;
+    color: #6b7280;
 
     font-size: 14px;
+
     line-height: 1.75;
 }
 
 
-/* =========================
-   6. AI SECTION
-   ========================= */
+/* =========================================================
+   5. AI SECTION
+   ========================================================= */
 
-#ai-area {
-    padding: 95px 7%;
+.ai-section {
+    width: 100%;
+
+    padding: 100px 8%;
 
     background:
         linear-gradient(
             135deg,
-            #eafaf4,
+            #ecfdf5,
             #f8fffc
         );
 }
 
-.ai-container {
+.ai-content {
     width: min(1180px, 100%);
+
     margin: 0 auto;
 
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.7fr);
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(280px, 0.65fr);
 
     align-items: center;
 
     gap: 70px;
 }
 
-.ai-content {
+.ai-text {
     min-width: 0;
 }
 
-.ai-content h2 {
-    margin-bottom: 14px;
-
-    color: #24584b;
-
-    font-size: clamp(30px, 4vw, 42px);
-    line-height: 1.25;
-}
-
-.ai-content p {
+.ai-text h2 {
     max-width: 650px;
 
-    margin-bottom: 26px;
+    margin-bottom: 18px;
 
-    color: #668078;
+    color: #111827;
+
+    font-size: clamp(32px, 4vw, 48px);
+
+    line-height: 1.2;
+}
+
+.ai-text p {
+    max-width: 650px;
+
+    margin-bottom: 30px;
+
+    color: #6b7280;
 
     font-size: 16px;
+
     line-height: 1.85;
 }
 
-.ai-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-height: 48px;
-    padding: 11px 22px;
-
-    border-radius: 999px;
-
-    background: #42b995;
-    color: #ffffff;
-
-    font-size: 14px;
-    font-weight: 600;
-
-    box-shadow: 0 10px 25px rgba(66, 185, 149, 0.20);
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease;
-}
-
-.ai-button:hover {
-    background: #319e7b;
-    transform: translateY(-2px);
-}
-
-.ai-visual {
+.ai-image {
+    width: 100%;
     min-width: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.ai-card {
-    width: min(100%, 360px);
 
     min-height: 300px;
 
@@ -593,380 +618,467 @@ section {
     align-items: center;
     justify-content: center;
 
-    padding: 35px;
+    border: 1px solid rgba(16, 185, 129, 0.10);
 
     border-radius: 30px;
 
     background: #ffffff;
 
-    border: 1px solid #d9eee7;
+    box-shadow:
+        0 20px 50px rgba(16, 185, 129, 0.08);
+}
 
-    box-shadow: 0 20px 50px rgba(40, 110, 90, 0.10);
+.ai-image > i {
+    color: #10b981;
 
-    font-size: 70px;
+    font-size: 85px;
 }
 
 
-/* =========================
-   7. SKILLS
-   ========================= */
+/* =========================================================
+   6. SKILLS
+   ========================================================= */
 
-#skills-area {
-    padding: 95px 6%;
+.skills {
+    width: 100%;
+
+    padding: 100px 8%;
 
     background: #ffffff;
 }
 
+.skills > h2 {
+    margin-bottom: 50px;
+
+    color: #111827;
+
+    text-align: center;
+
+    font-size: clamp(30px, 4vw, 44px);
+
+    line-height: 1.25;
+}
+
 .skill-grid {
-    width: min(1180px, 100%);
+    width: min(1100px, 100%);
+
     margin: 0 auto;
 
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
 
     gap: 20px;
 }
 
 .skill-card {
     min-width: 0;
-    min-height: 150px;
+    min-height: 155px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    padding: 24px 18px;
+    padding: 24px 16px;
 
-    border: 1px solid #e0f0eb;
-    border-radius: 22px;
+    border: 1px solid #d1fae5;
 
-    background: #fafffd;
+    border-radius: 20px;
+
+    background: #fbfffd;
+
+    color: #10b981;
 
     text-align: center;
 
     cursor: pointer;
 
+    box-shadow:
+        0 8px 25px rgba(16, 185, 129, 0.05);
+
     transition:
         transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
+        background 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .skill-card:hover {
     transform: translateY(-5px);
 
-    border-color: #9ddcc8;
-
-    background: #f2fcf8;
+    background: #ecfdf5;
 
     box-shadow:
-        0 15px 35px rgba(42, 125, 100, 0.10);
+        0 15px 32px rgba(16, 185, 129, 0.10);
 }
 
 .skill-card h3 {
     margin-top: 12px;
 
-    color: #315c51;
+    color: #374151;
 
     font-size: 16px;
+
     line-height: 1.45;
 }
 
-.skill-card p {
-    margin-top: 7px;
 
-    color: #758a83;
-
-    font-size: 13px;
-    line-height: 1.65;
-}
-
-
-/* Skill detail created by JS */
+/* Phần chi tiết được script.js tạo */
 
 .skill-detail {
     width: min(900px, 100%);
-    margin: 28px auto 0;
 
-    padding: 28px;
+    margin: 30px auto 0;
 
-    border: 1px solid #d8eee6;
+    padding: 30px;
+
+    border: 1px solid #d1fae5;
+
     border-radius: 22px;
 
-    background: #f6fcfa;
+    background: #f0fdf8;
 
-    box-shadow: 0 10px 30px rgba(40, 110, 90, 0.07);
+    color: #374151;
+
+    line-height: 1.8;
+
+    box-shadow:
+        0 10px 30px rgba(16, 185, 129, 0.07);
 }
 
 .skill-detail h3 {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 
-    color: #245b4d;
+    color: #059669;
 
     font-size: 22px;
-    line-height: 1.4;
-}
-
-.skill-detail p {
-    color: #617a72;
-
-    font-size: 15px;
-    line-height: 1.85;
 }
 
 
-/* =========================
-   8. QUOTE
-   ========================= */
+/* =========================================================
+   7. QUOTE
+   ========================================================= */
 
-.quote-section {
-    padding: 75px 7%;
+.quote {
+    width: 100%;
 
-    background: #edf9f5;
+    padding: 90px 8%;
+
+    background: #f0fdf8;
 
     text-align: center;
 }
 
-.quote-section blockquote {
-    width: min(800px, 100%);
+.quote h2 {
+    margin-bottom: 25px;
+
+    color: #059669;
+
+    font-size: 15px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+}
+
+.quote blockquote {
+    width: min(850px, 100%);
+
     margin: 0 auto;
 
-    color: #376459;
+    color: #374151;
 
-    font-size: clamp(20px, 3vw, 30px);
-    line-height: 1.55;
+    font-size: clamp(25px, 4vw, 40px);
+
+    line-height: 1.4;
+
     font-weight: 500;
 }
 
-.quote-section cite {
-    display: block;
 
-    margin-top: 18px;
+/* =========================================================
+   8. DIARY
+   ========================================================= */
 
-    color: #789189;
+.diary-section {
+    width: 100%;
 
-    font-size: 14px;
-    font-style: normal;
-}
-
-
-/* =========================
-   9. DIARY
-   ========================= */
-
-#diary-area {
-    padding: 90px 7%;
+    padding: 100px 8%;
 
     background: #ffffff;
 }
 
 .diary-container {
     width: min(900px, 100%);
+
     margin: 0 auto;
+
+    text-align: center;
 }
 
-.diary-box {
+.section-tag {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    color: #059669;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.diary-container h2 {
+    max-width: 700px;
+
+    margin: 0 auto 18px;
+
+    color: #111827;
+
+    font-size: clamp(30px, 4vw, 44px);
+
+    line-height: 1.2;
+}
+
+.diary-intro {
+    max-width: 650px;
+
+    margin: 0 auto 35px;
+
+    color: #6b7280;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+.diary-card {
     width: 100%;
 
-    padding: 35px;
+    padding: 28px;
 
-    border: 1px solid #dcefe9;
+    border: 1px solid rgba(16, 185, 129, 0.10);
+
     border-radius: 25px;
 
-    background: #fbfffd;
+    background: #ffffff;
 
-    box-shadow: 0 15px 40px rgba(40, 110, 90, 0.07);
+    box-shadow:
+        0 15px 45px rgba(16, 185, 129, 0.07);
+
+    text-align: left;
 }
 
 #diaryInput {
     display: block;
 
     width: 100%;
-    min-height: 220px;
+    min-height: 280px;
 
     padding: 18px;
 
-    border: 1px solid #d5eae3;
+    resize: vertical;
+
+    border: 1px solid #d1d5db;
+
     border-radius: 16px;
 
     outline: none;
 
-    resize: vertical;
+    background: #fbfffd;
 
-    background: #ffffff;
-    color: #34594f;
+    color: #1f2937;
 
     font-size: 15px;
-    line-height: 1.8;
 
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+    line-height: 1.7;
 }
 
 #diaryInput:focus {
-    border-color: #72c9ad;
+    border-color: #10b981;
 
     box-shadow:
-        0 0 0 4px rgba(66, 185, 149, 0.10);
+        0 0 0 4px rgba(16, 185, 129, 0.10);
 }
 
 #saveDiary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-height: 46px;
-
-    margin-top: 15px;
-    padding: 10px 20px;
-
-    border: 0;
-    border-radius: 999px;
-
-    background: #42b995;
-    color: #ffffff;
-
-    font-size: 14px;
-    font-weight: 600;
-
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease;
-}
-
-#saveDiary:hover {
-    background: #319e7b;
-    transform: translateY(-2px);
+    margin-top: 18px;
 }
 
 #diaryMessage {
     margin-top: 12px;
 
-    color: #5e7d72;
+    color: #059669;
 
     font-size: 14px;
-    line-height: 1.6;
 }
 
 
-/* =========================
-   10. FLEXIQUIZ
-   ========================= */
+/* =========================================================
+   9. BẢNG TỰ SOI / FLEXIQUIZ
+   ========================================================= */
 
-#self-discovery-area {
-    padding: 90px 7%;
+.test-link {
+    width: min(92%, 1050px);
+
+    margin: 40px auto 100px;
+
+    padding: 60px 30px;
+
+    text-align: center;
 
     background:
         linear-gradient(
             135deg,
-            #f1fbf7,
-            #ffffff
+            #ecfdf5,
+            #f8fffc
         );
+
+    border: 1px solid #d1fae5;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 50px rgba(16, 185, 129, 0.08);
 }
 
-.test-container {
-    width: min(900px, 100%);
-    margin: 0 auto;
+.test-icon {
+    margin-bottom: 15px;
 
-    padding: 40px;
-
-    border: 1px solid #dcefe8;
-    border-radius: 26px;
-
-    background: #ffffff;
-
-    text-align: center;
-
-    box-shadow: 0 15px 40px rgba(40, 110, 90, 0.07);
+    font-size: 45px;
 }
 
-.test-container h2 {
-    margin-bottom: 12px;
+.test-label {
+    display: block;
 
-    color: #275b4e;
+    margin-bottom: 15px;
 
-    font-size: clamp(27px, 4vw, 38px);
-    line-height: 1.3;
+    color: #059669;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
 }
 
-.test-container p {
-    margin-bottom: 24px;
+.test-link h2 {
+    margin-bottom: 10px;
 
-    color: #71857e;
+    color: #111827;
+
+    font-size: clamp(28px, 4vw, 42px);
+
+    line-height: 1.25;
+}
+
+.test-link h3 {
+    margin-bottom: 15px;
+
+    color: #059669;
+
+    font-size: 20px;
+
+    line-height: 1.4;
+}
+
+.test-link p {
+    width: min(650px, 100%);
+
+    margin: 0 auto 28px;
+
+    color: #6b7280;
 
     font-size: 15px;
+
     line-height: 1.8;
 }
 
-.test-container a {
+.test-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    min-height: 48px;
+    gap: 12px;
 
-    padding: 11px 22px;
+    min-height: 50px;
+
+    padding: 11px 24px;
 
     border-radius: 999px;
 
-    background: #42b995;
+    background: #10b981;
+
     color: #ffffff;
 
     font-size: 14px;
+
     font-weight: 600;
 
+    box-shadow:
+        0 10px 25px rgba(16, 185, 129, 0.18);
+
     transition:
-        transform 0.2s ease,
-        background 0.2s ease;
+        background 0.25s ease,
+        transform 0.25s ease;
 }
 
-.test-container a:hover {
-    background: #319e7b;
+.test-button span {
+    font-size: 20px;
+
+    line-height: 1;
+}
+
+.test-button:hover {
+    background: #059669;
+
     transform: translateY(-2px);
 }
 
+.test-link small {
+    display: block;
 
-/* =========================
-   11. SHARING AREA
-   ========================= */
+    margin-top: 18px;
 
-/*
-   Script.js cũng đang tạo CSS cho phần này.
-   Các quy tắc dưới đây bổ sung khả năng responsive
-   và chống tràn chữ.
-*/
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   10. KHUNG TÂM SỰ ĐƯỢC SCRIPT.JS TẠO
+   ========================================================= */
 
 #sharing-area {
     width: 100%;
-    min-width: 0;
 
-    padding: 90px 6%;
+    padding: 90px 8%;
 
     background: #ffffff;
 }
 
 .sharing-box {
     width: min(900px, 100%);
-    min-width: 0;
 
     margin: 0 auto;
 
     padding: 45px;
 
-    border: 1px solid #dcefe8;
+    border: 1px solid #d1fae5;
+
     border-radius: 28px;
 
     background:
         linear-gradient(
             145deg,
             #ffffff,
-            #f6fcfa
+            #f0fdf8
         );
 
-    box-shadow: 0 18px 45px rgba(40, 110, 90, 0.08);
+    box-shadow:
+        0 20px 50px rgba(16, 185, 129, 0.08);
 }
 
 .sharing-header {
@@ -978,34 +1090,35 @@ section {
 .sharing-header h2 {
     margin-bottom: 10px;
 
-    color: #27594d;
+    color: #111827;
 
-    font-size: clamp(27px, 4vw, 38px);
-    line-height: 1.3;
+    font-size: clamp(28px, 4vw, 40px);
+
+    line-height: 1.25;
 }
 
 .sharing-header p {
-    color: #74877f;
+    color: #6b7280;
 
     font-size: 15px;
+
     line-height: 1.8;
 }
 
 .sharing-form {
     width: 100%;
-    min-width: 0;
 }
 
 #sharing-input {
     display: block;
 
     width: 100%;
-    min-width: 0;
-    min-height: 190px;
+    min-height: 200px;
 
     padding: 18px;
 
-    border: 1px solid #d4e9e1;
+    border: 1px solid #d1d5db;
+
     border-radius: 17px;
 
     outline: none;
@@ -1013,28 +1126,26 @@ section {
     resize: vertical;
 
     background: #ffffff;
-    color: #34584f;
+
+    color: #1f2937;
 
     font-size: 15px;
+
     line-height: 1.8;
-
-    overflow-wrap: anywhere;
-
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
 }
 
 #sharing-input:focus {
-    border-color: #72c9ad;
+    border-color: #10b981;
 
     box-shadow:
-        0 0 0 4px rgba(66, 185, 149, 0.10);
+        0 0 0 4px rgba(16, 185, 129, 0.10);
 }
 
 .sharing-bottom {
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     gap: 15px;
@@ -1043,11 +1154,9 @@ section {
 }
 
 #char-count {
-    color: #80938d;
+    color: #94a3b8;
 
     font-size: 13px;
-
-    line-height: 1.5;
 }
 
 #send-sharing {
@@ -1055,94 +1164,100 @@ section {
 
     min-height: 46px;
 
-    padding: 10px 20px;
+    padding: 10px 22px;
 
     border: 0;
+
     border-radius: 999px;
 
-    background: #42b995;
+    background: #10b981;
+
     color: #ffffff;
 
     font-size: 14px;
+
     font-weight: 600;
 
     transition:
-        transform 0.2s ease,
-        background 0.2s ease;
+        background 0.25s ease,
+        transform 0.25s ease;
 }
 
 #send-sharing:hover {
-    background: #319e7b;
+    background: #059669;
+
     transform: translateY(-2px);
 }
 
 #sharing-response {
     width: 100%;
-    min-width: 0;
 
     margin-top: 22px;
+
     padding: 20px;
 
     border-radius: 17px;
 
-    background: #f0faf6;
+    background: #ecfdf5;
 
-    color: #45685e;
+    color: #374151;
 
     font-size: 15px;
+
     line-height: 1.8;
 
-    overflow-wrap: anywhere;
-    word-break: normal;
+    overflow-wrap: break-word;
 }
 
 
-/* =========================
-   12. FOOTER
-   ========================= */
+/* =========================================================
+   11. FOOTER
+   ========================================================= */
 
 #contact-area {
     width: 100%;
 
-    padding: 50px 6% 35px;
+    padding: 55px 8% 35px;
 
-    background: #214e43;
+    background: #064e3b;
 
     color: #ffffff;
 
     text-align: center;
 }
 
-#contact-area a {
-    transition: color 0.2s ease;
-}
+#contact-area h3 {
+    margin-bottom: 12px;
 
-#contact-area a:hover {
-    color: #9ce4cc;
+    font-size: 21px;
 }
 
 #contact-area p {
+    margin-bottom: 7px;
+
     color: rgba(255, 255, 255, 0.78);
 
-    font-size: 14px;
-    line-height: 1.8;
+    font-size: 13px;
+
+    line-height: 1.7;
 }
 
 
-/* =========================
-   13. TABLET
-   769px - 1050px
-   ========================= */
+/* =========================================================
+   12. TABLET
+   ========================================================= */
 
 @media (max-width: 1050px) {
 
     #main-header {
-        padding: 0 3.5%;
+        padding-left: 4%;
+        padding-right: 4%;
     }
 
     #main-nav {
-        gap: 17px;
-        margin-left: 18px;
+        gap: 18px;
+
+        margin-left: 20px;
     }
 
     #main-nav a {
@@ -1150,34 +1265,42 @@ section {
     }
 
     .login-btn {
-        margin-left: 12px;
-        padding: 8px 14px;
+        margin-left: 15px;
+
+        padding-left: 15px;
+        padding-right: 15px;
+
         font-size: 13px;
     }
 
-    .hero-content {
+    .hero {
         gap: 40px;
+
+        padding-left: 6%;
+        padding-right: 6%;
     }
 
     .feature-grid,
     .skill-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
-    .ai-container {
+    .ai-content {
         gap: 40px;
     }
 }
 
 
-/* =========================
-   14. MOBILE
-   <= 768px
-   ========================= */
+/* =========================================================
+   13. MOBILE
+   ========================================================= */
 
 @media (max-width: 768px) {
 
-    /* Header */
+    /* -------------------------
+       HEADER
+       ------------------------- */
 
     #main-header {
         height: 70px;
@@ -1185,28 +1308,31 @@ section {
         padding: 0 16px;
 
         display: grid;
-        grid-template-columns: minmax(0, 1fr) auto auto;
 
-        gap: 9px;
+        grid-template-columns:
+            minmax(0, 1fr)
+            auto
+            auto;
+
+        gap: 8px;
     }
 
     .logo {
         min-width: 0;
 
-        font-size: 19px;
+        font-size: 18px;
 
         overflow: hidden;
+
         text-overflow: ellipsis;
     }
-
-    /* Login vẫn hiển thị trên mobile nhưng thu gọn */
 
     .login-btn {
         display: inline-flex;
 
         min-height: 38px;
 
-        margin-left: 0;
+        margin: 0;
 
         padding: 7px 12px;
 
@@ -1219,39 +1345,46 @@ section {
         display: inline-flex;
     }
 
-    /*
-       Menu mobile xổ xuống dưới header.
-    */
+
+    /* Menu xổ xuống */
 
     #main-nav {
         position: absolute;
 
         top: 70px;
+
         left: 12px;
         right: 12px;
 
         width: auto;
 
         margin: 0;
-        padding: 10px;
+
+        padding: 9px;
 
         display: flex;
+
         flex-direction: column;
+
         align-items: stretch;
+
         justify-content: flex-start;
 
         gap: 3px;
 
-        border: 1px solid #dcefe8;
+        border: 1px solid #d1fae5;
+
         border-radius: 17px;
 
         background: rgba(255, 255, 255, 0.98);
 
         box-shadow:
-            0 18px 40px rgba(30, 100, 80, 0.13);
+            0 18px 40px rgba(16, 185, 129, 0.14);
 
         opacity: 0;
+
         visibility: hidden;
+
         pointer-events: none;
 
         transform: translateY(-8px);
@@ -1264,7 +1397,9 @@ section {
 
     #main-nav.open {
         opacity: 1;
+
         visibility: visible;
+
         pointer-events: auto;
 
         transform: translateY(0);
@@ -1277,9 +1412,7 @@ section {
 
         padding: 12px 14px;
 
-        border-radius: 11px;
-
-        color: #365d53;
+        border-radius: 10px;
 
         font-size: 14px;
 
@@ -1287,7 +1420,7 @@ section {
     }
 
     #main-nav a:hover {
-        background: #effaf6;
+        background: #ecfdf5;
 
         transform: none;
     }
@@ -1297,121 +1430,119 @@ section {
     }
 
 
-    /* Hero */
+    /* -------------------------
+       HERO
+       ------------------------- */
 
-    #home {
+    .hero {
         min-height: auto;
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
 
         padding:
             110px
             20px
-            65px;
-    }
+            70px;
 
-    .hero-content {
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-    }
-
-    .hero-text {
         text-align: center;
     }
 
-    .hero-text h1 {
-        max-width: 650px;
+    .hero-left h1 {
         margin-left: auto;
         margin-right: auto;
 
-        font-size: clamp(32px, 8vw, 46px);
-
-        letter-spacing: -0.5px;
+        font-size: clamp(34px, 8vw, 48px);
     }
 
-    .hero-text p {
+    .hero-left p {
         margin-left: auto;
         margin-right: auto;
 
         font-size: 15px;
-        line-height: 1.8;
     }
 
     .hero-buttons {
         justify-content: center;
     }
 
+    .hero-right {
+        width: 100%;
+    }
+
     .hero-card {
-        max-width: 520px;
-        margin: 0 auto;
+        width: min(100%, 500px);
 
-        padding: 32px 24px;
-
-        border-radius: 23px;
+        padding: 35px 25px;
     }
 
 
-    /* Common sections */
+    /* -------------------------
+       FEATURES
+       ------------------------- */
 
-    #features-area,
-    #ai-area,
-    #skills-area,
-    #diary-area,
-    #self-discovery-area,
-    #sharing-area {
-        padding-left: 20px;
-        padding-right: 20px;
+    .features {
+        padding:
+            75px
+            20px;
     }
-
-    .section-title {
-        margin-bottom: 32px;
-    }
-
-
-    /* Features */
 
     .feature-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
 
         gap: 15px;
     }
 
-    .feature-card {
-        padding: 25px 17px;
-    }
 
+    /* -------------------------
+       AI
+       ------------------------- */
 
-    /* AI */
-
-    .ai-container {
-        grid-template-columns: 1fr;
-
-        gap: 35px;
+    .ai-section {
+        padding:
+            75px
+            20px;
     }
 
     .ai-content {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
         text-align: center;
     }
 
-    .ai-content p {
+    .ai-text p {
         margin-left: auto;
         margin-right: auto;
     }
 
-    .ai-visual {
+    .ai-image {
+        min-height: 220px;
+
         order: -1;
     }
 
-    .ai-card {
-        min-height: 220px;
-
-        font-size: 55px;
+    .ai-image > i {
+        font-size: 65px;
     }
 
 
-    /* Skills */
+    /* -------------------------
+       SKILLS
+       ------------------------- */
+
+    .skills {
+        padding:
+            75px
+            20px;
+    }
 
     .skill-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
 
         gap: 14px;
     }
@@ -1419,41 +1550,71 @@ section {
     .skill-card {
         min-height: 135px;
 
-        padding: 20px 13px;
+        padding: 20px 12px;
     }
 
 
-    /* Quote */
+    /* -------------------------
+       QUOTE
+       ------------------------- */
 
-    .quote-section {
-        padding: 60px 20px;
+    .quote {
+        padding:
+            65px
+            20px;
     }
 
 
-    /* Diary */
+    /* -------------------------
+       DIARY
+       ------------------------- */
 
-    .diary-box,
-    .sharing-box,
-    .test-container {
+    .diary-section {
+        padding:
+            75px
+            20px;
+    }
+
+    .diary-card {
+        padding: 22px;
+    }
+
+
+    /* -------------------------
+       FLEXIQUIZ
+       ------------------------- */
+
+    .test-link {
+        width: calc(100% - 30px);
+
+        margin:
+            30px auto
+            70px;
+
+        padding:
+            45px
+            20px;
+    }
+
+
+    /* -------------------------
+       SHARING
+       ------------------------- */
+
+    #sharing-area {
+        padding:
+            75px
+            20px;
+    }
+
+    .sharing-box {
         padding: 28px 20px;
-
-        border-radius: 21px;
     }
-
-    #diaryInput {
-        min-height: 190px;
-    }
-
-
-    /* Sharing */
 
     .sharing-bottom {
         flex-direction: column;
-        align-items: stretch;
-    }
 
-    #char-count {
-        text-align: left;
+        align-items: stretch;
     }
 
     #send-sharing {
@@ -1461,38 +1622,41 @@ section {
     }
 
 
-    /* Footer */
+    /* -------------------------
+       FOOTER
+       ------------------------- */
 
     #contact-area {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding:
+            45px
+            20px
+            30px;
     }
 }
 
 
-/* =========================
-   15. SMALL MOBILE
-   <= 480px
-   ========================= */
+/* =========================================================
+   14. SMALL PHONE
+   ========================================================= */
 
 @media (max-width: 480px) {
 
     #main-header {
         padding: 0 12px;
 
-        grid-template-columns: minmax(0, 1fr) auto auto;
-
         gap: 6px;
     }
 
     .logo {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .login-btn {
         min-height: 36px;
 
-        padding: 6px 9px;
+        padding:
+            6px
+            9px;
 
         font-size: 11px;
     }
@@ -1500,22 +1664,23 @@ section {
     .menu-toggle {
         width: 38px;
         height: 38px;
-        flex-basis: 38px;
-
-        font-size: 18px;
     }
 
-    #home {
-        padding-top: 100px;
-        padding-left: 15px;
-        padding-right: 15px;
+
+    .hero {
+        padding:
+            100px
+            15px
+            60px;
     }
 
-    .hero-text h1 {
-        font-size: 31px;
+    .hero-left h1 {
+        font-size: 30px;
+
+        letter-spacing: -0.5px;
     }
 
-    .hero-text p {
+    .hero-left p {
         font-size: 14px;
     }
 
@@ -1527,9 +1692,19 @@ section {
         align-items: stretch;
     }
 
-    .hero-buttons a,
-    .hero-buttons button {
+    .btn-primary,
+    .btn-secondary {
         width: 100%;
+    }
+
+
+    .features,
+    .skills,
+    .ai-section,
+    .diary-section,
+    #sharing-area {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
     .feature-grid {
@@ -1537,61 +1712,73 @@ section {
     }
 
     .skill-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
 
         gap: 10px;
     }
 
     .skill-card {
-        min-height: 125px;
+        min-height: 120px;
 
-        padding: 17px 9px;
+        padding:
+            17px
+            8px;
     }
 
     .skill-card h3 {
         font-size: 14px;
     }
 
-    .skill-card p {
-        font-size: 12px;
+
+    .diary-card {
+        padding: 17px;
     }
 
-    .ai-content h2,
-    .test-container h2 {
-        font-size: 28px;
-    }
-
-    .sharing-box,
-    .diary-box,
-    .test-container {
-        padding: 22px 15px;
-    }
-
-    #sharing-input,
     #diaryInput {
+        min-height: 220px;
+    }
+
+    .sharing-box {
+        padding:
+            22px
+            15px;
+    }
+
+    #sharing-input {
+        min-height: 180px;
+
         font-size: 14px;
     }
 
-    .sharing-header h2 {
-        font-size: 28px;
+    .test-link {
+        width: calc(100% - 20px);
+
+        padding:
+            40px
+            15px;
+    }
+
+    .test-button {
+        width: 100%;
     }
 }
 
 
-/* =========================
-   16. VERY SMALL PHONES
-   <= 360px
-   ========================= */
+/* =========================================================
+   15. VERY SMALL PHONE
+   ========================================================= */
 
 @media (max-width: 360px) {
 
     .logo {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .login-btn {
-        padding-left: 7px;
-        padding-right: 7px;
+        padding:
+            6px
+            7px;
 
         font-size: 10px;
     }
@@ -1599,199 +1786,24 @@ section {
     .menu-toggle {
         width: 36px;
         height: 36px;
-        flex-basis: 36px;
     }
 
-    .hero-text h1 {
+    .hero-left h1 {
         font-size: 28px;
     }
 
     .skill-card {
-        min-height: 118px;
-
-        padding-left: 7px;
-        padding-right: 7px;
+        min-height: 112px;
     }
 }
 
 
-/* =========================
-   17. ACCESSIBILITY
-   ========================= */
+/* =========================================================
+   16. ACCESSIBILITY
+   ========================================================= */
 
 :focus-visible {
-    outline: 3px solid rgba(66, 185, 149, 0.35);
+    outline: 3px solid rgba(16, 185, 129, 0.30);
+
     outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-    }
-}
-/* =========================================================
-   FIX HEADER + DESKTOP LAYOUT
-   ========================================================= */
-
-/* Không cho header tự xuống dòng */
-#main-header {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-}
-
-/* Logo luôn ở bên trái */
-#main-header .logo {
-    order: 1 !important;
-    flex: 0 0 auto !important;
-}
-
-/* Menu luôn nằm ở giữa/phía phải */
-#main-header #main-nav {
-    order: 2 !important;
-
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-
-    flex: 1 1 auto !important;
-
-    gap: 28px !important;
-    margin-left: auto !important;
-    margin-right: 8px !important;
-
-    flex-wrap: nowrap !important;
-}
-
-/* Từng mục menu không bị dính */
-#main-header #main-nav a {
-    display: inline-flex !important;
-    align-items: center !important;
-
-    flex: 0 0 auto !important;
-
-    white-space: nowrap !important;
-
-    margin: 0 !important;
-    padding: 4px 0 !important;
-
-    line-height: 1.5 !important;
-}
-
-/* Nút đăng nhập luôn ở ngoài cùng bên phải */
-#main-header .login-btn {
-    order: 3 !important;
-
-    flex: 0 0 auto !important;
-
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    margin: 0 0 0 12px !important;
-
-    white-space: nowrap !important;
-}
-
-
-/* Nút bắt đầu tâm sự */
-.hero-buttons .btn-primary,
-.hero-buttons a:first-child {
-    background: #10b981 !important;
-    color: #ffffff !important;
-
-    border: 1px solid #10b981 !important;
-
-    opacity: 1 !important;
-
-    box-shadow:
-        0 10px 25px rgba(16, 185, 129, 0.20) !important;
-}
-
-.hero-buttons .btn-primary:hover,
-.hero-buttons a:first-child:hover {
-    background: #059669 !important;
-    color: #ffffff !important;
-
-    transform: translateY(-2px);
-}
-
-
-/* Nút khám phá */
-.hero-buttons .btn-secondary,
-.hero-buttons a:last-child {
-    background: #ffffff !important;
-    color: #059669 !important;
-
-    border: 1px solid #a7dfcc !important;
-
-    opacity: 1 !important;
-}
-
-
-/* =========================================================
-   FIX MOBILE
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-    #main-header {
-        display: grid !important;
-
-        grid-template-columns: minmax(0, 1fr) auto auto !important;
-
-        align-items: center !important;
-
-        gap: 8px !important;
-    }
-
-    #main-header .logo {
-        order: 1 !important;
-
-        min-width: 0 !important;
-
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-    }
-
-    #main-header .login-btn {
-        order: 2 !important;
-
-        margin: 0 !important;
-    }
-
-    #main-header .menu-toggle {
-        order: 3 !important;
-    }
-
-    #main-header #main-nav {
-        order: initial !important;
-
-        display: flex !important;
-        flex-direction: column !important;
-
-        gap: 3px !important;
-
-        margin: 0 !important;
-
-        flex: none !important;
-
-        flex-wrap: nowrap !important;
-    }
-
-    #main-header #main-nav a {
-        width: 100% !important;
-
-        display: block !important;
-
-        white-space: normal !important;
-
-        padding: 12px 14px !important;
-    }
 }
