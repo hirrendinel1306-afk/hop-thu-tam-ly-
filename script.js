@@ -639,6 +639,95 @@ document.addEventListener("keydown", (event) => {
 });
 
 /* =========================================================
+   10.5. MỞ / ĐÓNG KHUNG TẠO TÀI KHOẢN
+   ========================================================= */
+
+const registerButton =
+    document.getElementById("register-button");
+
+const registerModal =
+    document.getElementById("register-modal");
+
+const registerClose =
+    document.getElementById("register-close");
+
+const registerOverlay =
+    document.getElementById("register-overlay");
+
+const backLoginButton =
+    document.getElementById("back-login-button");
+
+
+/* Mở khung đăng ký */
+
+if (registerButton && registerModal) {
+
+    registerButton.addEventListener("click", () => {
+
+        /* Đóng khung đăng nhập */
+
+        if (loginModal) {
+            loginModal.classList.remove("show");
+        }
+
+        /* Mở khung đăng ký */
+
+        registerModal.classList.add("show");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+}
+
+
+/* Đóng bằng nút X */
+
+if (registerClose && registerModal) {
+
+    registerClose.addEventListener("click", () => {
+
+        registerModal.classList.remove("show");
+
+        document.body.style.overflow = "";
+
+    });
+
+}
+
+
+/* Đóng khi bấm ra ngoài */
+
+if (registerOverlay && registerModal) {
+
+    registerOverlay.addEventListener("click", () => {
+
+        registerModal.classList.remove("show");
+
+        document.body.style.overflow = "";
+
+    });
+
+}
+
+
+/* Quay lại đăng nhập */
+
+if (backLoginButton && registerModal && loginModal) {
+
+    backLoginButton.addEventListener("click", () => {
+
+        registerModal.classList.remove("show");
+
+        loginModal.classList.add("show");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+}
+    
+/* =========================================================
    11. XỬ LÝ FORM ĐĂNG NHẬP — TẠM THỜI
    ========================================================= */
 
