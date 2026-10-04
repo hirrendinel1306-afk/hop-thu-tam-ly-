@@ -573,7 +573,7 @@ const loginOverlay =
     document.getElementById("login-overlay");
 
 
-/* Mở khung đăng nhập */
+/* MỞ KHUNG ĐĂNG NHẬP */
 
 if (loginButton && loginModal) {
 
@@ -590,7 +590,7 @@ if (loginButton && loginModal) {
 }
 
 
-/* Đóng bằng nút X */
+/* ĐÓNG BẰNG NÚT X */
 
 if (loginClose && loginModal) {
 
@@ -605,7 +605,7 @@ if (loginClose && loginModal) {
 }
 
 
-/* Đóng khi bấm ra ngoài */
+/* ĐÓNG KHI BẤM RA NGOÀI */
 
 if (loginOverlay && loginModal) {
 
@@ -620,7 +620,7 @@ if (loginOverlay && loginModal) {
 }
 
 
-/* Đóng bằng phím Escape */
+/* ĐÓNG BẰNG PHÍM ESCAPE */
 
 document.addEventListener("keydown", (event) => {
 
@@ -638,32 +638,38 @@ document.addEventListener("keydown", (event) => {
 
 });
 
+
 /* =========================================================
-   10.5. KHUNG TẠO TÀI KHOẢN
+   11. KHUNG TẠO TÀI KHOẢN
    ========================================================= */
 
-const registerButton = document.getElementById("register-button");
-const registerModal = document.getElementById("register-modal");
-const registerClose = document.getElementById("register-close");
-const registerOverlay = document.getElementById("register-overlay");
-const backLoginButton = document.getElementById("back-login-button");
+const registerButton =
+    document.getElementById("register-button");
+
+const registerModal =
+    document.getElementById("register-modal");
+
+const registerClose =
+    document.getElementById("register-close");
+
+const registerOverlay =
+    document.getElementById("register-overlay");
+
+const backLoginButton =
+    document.getElementById("back-login-button");
 
 
 /* MỞ KHUNG ĐĂNG KÝ */
 
 if (registerButton && registerModal) {
 
-    registerButton.addEventListener("click", function (event) {
+    registerButton.addEventListener("click", (event) => {
 
         event.preventDefault();
-
-        /* Đóng khung đăng nhập */
 
         if (loginModal) {
             loginModal.classList.remove("show");
         }
-
-        /* Mở khung đăng ký */
 
         registerModal.classList.add("show");
 
@@ -678,7 +684,7 @@ if (registerButton && registerModal) {
 
 if (registerClose && registerModal) {
 
-    registerClose.addEventListener("click", function () {
+    registerClose.addEventListener("click", () => {
 
         registerModal.classList.remove("show");
 
@@ -689,11 +695,11 @@ if (registerClose && registerModal) {
 }
 
 
-/* BẤM RA NGOÀI ĐỂ ĐÓNG */
+/* ĐÓNG KHI BẤM RA NGOÀI */
 
 if (registerOverlay && registerModal) {
 
-    registerOverlay.addEventListener("click", function () {
+    registerOverlay.addEventListener("click", () => {
 
         registerModal.classList.remove("show");
 
@@ -708,7 +714,7 @@ if (registerOverlay && registerModal) {
 
 if (backLoginButton && registerModal && loginModal) {
 
-    backLoginButton.addEventListener("click", function () {
+    backLoginButton.addEventListener("click", () => {
 
         registerModal.classList.remove("show");
 
@@ -719,9 +725,10 @@ if (backLoginButton && registerModal && loginModal) {
     });
 
 }
-    
+
+
 /* =========================================================
-   11. XỬ LÝ FORM ĐĂNG NHẬP — TẠM THỜI
+   12. XỬ LÝ FORM ĐĂNG NHẬP — TẠM THỜI
    ========================================================= */
 
 const loginForm =
@@ -744,18 +751,15 @@ if (loginForm) {
             document.getElementById("login-password").value.trim();
 
 
-        /* Kiểm tra thông tin */
-
         if (!email || !password) {
 
             loginMessage.textContent =
                 "Vui lòng nhập đầy đủ thông tin 🌿";
 
             return;
+
         }
 
-
-        /* Kiểm tra email */
 
         if (!email.includes("@")) {
 
@@ -763,10 +767,9 @@ if (loginForm) {
                 "Email chưa đúng định dạng.";
 
             return;
+
         }
 
-
-        /* Tạm thời */
 
         loginMessage.textContent =
             "Đang kiểm tra thông tin đăng nhập... 🌿";
@@ -776,14 +779,12 @@ if (loginForm) {
 }
 
 
+/* =========================================================
+   13. KIỂM TRA SCRIPT
+   ========================================================= */
 
-    
-    /* =========================================================
-       11. KIỂM TRA SCRIPT
-       ========================================================= */
+console.log(
+    "🌿 Hộp thư tâm lý — Script đã tải thành công."
+);
 
-    console.log(
-        "🌿 Hộp thư tâm lý — Script đã tải thành công."
-    );
-
-});
+});    
