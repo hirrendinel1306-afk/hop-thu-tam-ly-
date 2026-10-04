@@ -1,5 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+/* =========================================================
+   SUPABASE — KẾT NỐI TÀI KHOẢN
+   ========================================================= */
+
+const SUPABASE_URL =
+    "https://hrngakqcirsioabutnkr.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_UZOu8ugF1H4nLtPa8cXtpw_cpyI2-Qw";
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+console.log("🌿 Supabase đã kết nối.");
+    
     /* =========================================================
        1. CÁC PHẦN TỬ CHÍNH
        ========================================================= */
