@@ -1807,3 +1807,342 @@ span {
 
     outline-offset: 3px;
 }
+
+/* =========================================================
+   KHUNG ĐĂNG NHẬP
+   ========================================================= */
+
+.login-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.login-modal.show {
+    display: flex;
+}
+
+
+/* Lớp nền phía sau */
+
+.login-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(5px);
+}
+
+
+/* Hộp đăng nhập */
+
+.login-box {
+    position: relative;
+    z-index: 1;
+
+    width: min(430px, 100%);
+
+    padding: 38px 36px;
+
+    background: #ffffff;
+
+    border: 1px solid rgba(16, 185, 129, 0.12);
+    border-radius: 26px;
+
+    box-shadow:
+        0 25px 70px rgba(15, 23, 42, 0.18);
+
+    text-align: center;
+
+    animation: loginAppear 0.25s ease;
+}
+
+
+@keyframes loginAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* Nút đóng */
+
+.login-close {
+    position: absolute;
+    top: 14px;
+    right: 17px;
+
+    width: 36px;
+    height: 36px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #f3f4f6;
+    color: #6b7280;
+
+    font-size: 25px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.login-close:hover {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+
+/* Icon */
+
+.login-icon {
+    width: 62px;
+    height: 62px;
+
+    margin: 0 auto 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: #ecfdf5;
+
+    font-size: 29px;
+}
+
+
+/* Tiêu đề */
+
+.login-box h2 {
+    margin: 0 0 8px;
+
+    color: #111827;
+
+    font-size: 28px;
+    line-height: 1.25;
+}
+
+.login-subtitle {
+    margin: 0 0 28px;
+
+    color: #6b7280;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* Các ô nhập */
+
+.login-form {
+    width: 100%;
+}
+
+.login-field {
+    margin-bottom: 17px;
+
+    text-align: left;
+}
+
+.login-field label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #374151;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.login-field input {
+    box-sizing: border-box;
+
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 13px;
+
+    outline: none;
+
+    background: #fbfffd;
+    color: #1f2937;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.login-field input:focus {
+    border-color: #10b981;
+
+    box-shadow:
+        0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+
+/* Nút đăng nhập */
+
+.login-submit {
+    width: 100%;
+
+    margin-top: 5px;
+
+    padding: 13px 18px;
+
+    border: none;
+    border-radius: 999px;
+
+    background: #10b981;
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.login-submit:hover {
+    background: #059669;
+    transform: translateY(-1px);
+}
+
+
+/* Thông báo */
+
+.login-message {
+    min-height: 20px;
+
+    margin: 14px 0 0;
+
+    color: #059669;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* Đường phân cách */
+
+.login-divider {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 20px 0;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #e5e7eb;
+}
+
+.login-divider span {
+    color: #9ca3af;
+
+    font-size: 12px;
+}
+
+
+/* Nút tạo tài khoản */
+
+.register-button {
+    width: 100%;
+
+    padding: 12px 18px;
+
+    border: 1px solid #a7f3d0;
+    border-radius: 999px;
+
+    background: #ffffff;
+    color: #059669;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.register-button:hover {
+    background: #ecfdf5;
+    border-color: #6ee7b7;
+}
+
+
+/* =========================================================
+   ĐIỆN THOẠI
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .login-modal {
+        padding: 15px;
+    }
+
+    .login-box {
+        width: 100%;
+
+        padding: 34px 22px;
+
+        border-radius: 22px;
+    }
+
+    .login-box h2 {
+        font-size: 25px;
+    }
+
+    .login-icon {
+        width: 56px;
+        height: 56px;
+
+        font-size: 26px;
+    }
+
+    .login-close {
+        top: 11px;
+        right: 12px;
+    }
+
+}
