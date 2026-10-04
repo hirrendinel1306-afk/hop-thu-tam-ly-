@@ -1,51 +1,92 @@
+
 <!DOCTYPE html>
+
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Hộp thư tâm lý</title>
+```
+<title>Hộp thư tâm lý</title>
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 
-    <!-- Icon -->
-    <link rel="stylesheet"
+<!-- Font Awesome -->
+<link
+    rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-    <link rel="stylesheet" href="style.css">
+<!-- CSS chính -->
+<link rel="stylesheet" href="style.css">
+```
+
 </head>
 
 <body>
 
-<header>
+```
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header id="main-header">
 
     <div class="logo">
-
         🌿 Hộp thư tâm lý
-
     </div>
 
-    <nav>
 
-        <a href="#">Trang chủ</a>
+    <!-- Nút menu dành cho điện thoại -->
+    <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Mở menu"
+        aria-expanded="false">
 
-        <a href="#">Tâm sự</a>
+        <i class="fa-solid fa-bars"></i>
 
-        <a href="#">Góc kỹ năng</a>
+    </button>
+
+
+    <!-- Menu điều hướng -->
+    <nav id="main-nav">
+
+        <a href="#home">
+            Trang chủ
+        </a>
+
+        <a href="#sharing-area">
+            Tâm sự
+        </a>
+
+        <a href="#skills-area">
+            Góc kỹ năng
+        </a>
 
         <a href="#diary-area">
-    📔 Nhật ký
-</a>
+            📔 Nhật ký
+        </a>
 
-        <a href="#">Liên hệ</a>
+        <a href="#contact-area">
+            Liên hệ
+        </a>
 
     </nav>
 
-    <a href="#" class="login-btn">
+
+    <!-- Tài khoản -->
+    <a
+        href="#"
+        class="login-btn"
+        id="login-button">
 
         Đăng nhập
 
@@ -54,320 +95,506 @@
 </header>
 
 
-<!-- HERO -->
+<!-- ==================================================
+     NỘI DUNG CHÍNH
+================================================== -->
 
-<section class="hero">
+<main>
 
-    <div class="hero-left">
 
-        <span class="tag">
+    <!-- ==================================================
+         HERO
+    ================================================== -->
 
-            Đồng hành cùng học sinh THPT
+    <section
+        class="hero"
+        id="home">
 
-        </span>
+        <div class="hero-left">
 
-        <h1>
+            <span class="tag">
+                Đồng hành cùng học sinh THPT
+            </span>
 
-            Mỗi cảm xúc đều
-            xứng đáng được
-            lắng nghe.
 
-        </h1>
+            <h1>
+                Mỗi cảm xúc đều
+                xứng đáng được
+                lắng nghe.
+            </h1>
 
-        <p>
-
-            Hộp thư tâm lý là nơi bạn có thể chia sẻ
-            cảm xúc, áp lực học tập, những điều khó nói
-            trong một không gian an toàn, tích cực
-            và luôn có người đồng hành.
-
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#" class="btn-primary">
-
-                🌿 Bắt đầu tâm sự
-
-            </a>
-
-            <a href="#" class="btn-secondary">
-
-                📖 Khám phá
-
-            </a>
-
-        </div>
-
-    </div>
-
-    <div class="hero-right">
-
-        <div class="hero-card">
-
-            <i class="fa-solid fa-heart"></i>
-
-            <h3>
-
-                Chào bạn!
-
-            </h3>
 
             <p>
-
-                Hôm nay bạn cảm thấy thế nào?
-
-                Hãy chia sẻ với chúng mình.
-
+                Hộp thư tâm lý là nơi bạn có thể chia sẻ
+                cảm xúc, áp lực học tập, những điều khó nói
+                trong một không gian an toàn, tích cực
+                và luôn có người đồng hành.
             </p>
 
-        </div>
 
-    </div>
+            <div class="hero-buttons">
 
-</section>
-    
-<!-- FEATURES -->
+                <a
+                    href="#sharing-area"
+                    class="btn-primary">
 
-<section class="features">
+                    🌿 Bắt đầu tâm sự
 
-    <h2>Tại sao nên chọn Hộp thư tâm lý?</h2>
+                </a>
 
-    <div class="feature-grid">
 
-        <div class="feature-card">
-            <i class="fa-solid fa-hand-holding-heart"></i>
-            <h3>Đồng hành</h3>
-            <p>Luôn có AI và những nội dung tích cực đồng hành cùng bạn.</p>
-        </div>
+                <a
+                    href="#features-area"
+                    class="btn-secondary">
 
-        <div class="feature-card">
-            <i class="fa-solid fa-user-shield"></i>
-            <h3>Riêng tư</h3>
-            <p>Tôn trọng quyền riêng tư và giúp bạn chia sẻ an toàn.</p>
-        </div>
+                    📖 Khám phá
 
-        <div class="feature-card">
-            <i class="fa-solid fa-brain"></i>
-            <h3>Cá nhân hóa</h3>
-            <p>Gợi ý phù hợp với cảm xúc và nhu cầu của từng học sinh.</p>
-        </div>
+                </a>
 
-        <div class="feature-card">
-            <i class="fa-solid fa-seedling"></i>
-            <h3>Phát triển bản thân</h3>
-            <p>Khám phá các kỹ năng giúp bạn thích nghi và trưởng thành.</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- AI SECTION -->
-
-<section class="ai-section">
-
-    <div class="ai-content">
-
-        <div class="ai-text">
-
-            <span class="tag">AI Đồng Hành</span>
-
-            <h2>Luôn có một người lắng nghe bạn.</h2>
-
-            <p>
-
-                AI sẽ đồng hành cùng bạn như một người bạn thân thiện,
-                giúp bạn chia sẻ cảm xúc, nhìn nhận vấn đề và tìm ra
-                hướng giải quyết phù hợp.
-
-            </p>
-
-            <a href="#" class="btn-primary">
-
-                💬 Trò chuyện ngay
-
-            </a>
+            </div>
 
         </div>
 
-        <div class="ai-image">
 
-            <i class="fa-solid fa-robot"></i>
+        <div class="hero-right">
+
+            <div class="hero-card">
+
+                <i class="fa-solid fa-heart"></i>
+
+                <h3>
+                    Chào bạn!
+                </h3>
+
+                <p>
+                    Hôm nay bạn cảm thấy thế nào?
+                    Hãy chia sẻ với chúng mình.
+                </p>
+
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
 
-<!-- SKILLS -->
+    <!-- ==================================================
+         FEATURES
+    ================================================== -->
 
-<section class="skills">
-
-    <h2>Góc kỹ năng</h2>
-
-    <div class="skill-grid">
-
-    <div class="skill-grid">
-
-    <div class="skill-card">
-        📚
-        <h3>Áp lực học tập</h3>
-    </div>
-
-    <div class="skill-card">
-        👨‍👩‍👧
-        <h3>Gia đình</h3>
-    </div>
-
-    <div class="skill-card">
-        🤝
-        <h3>Bạn bè</h3>
-    </div>
-
-    <div class="skill-card">
-        🌱
-        <h3>Kỹ năng thích ứng</h3>
-    </div>
-
-    <div class="skill-card">
-        🎯
-        <h3>Định hướng tương lai</h3>
-    </div>
-
-    <div class="skill-card">
-        💬
-        <h3>Giao tiếp</h3>
-    </div>
-
-    <div class="skill-card">
-        🧠
-        <h3>Quản lý cảm xúc</h3>
-    </div>
-
-    <div class="skill-card">
-        ⏰
-        <h3>Quản lý thời gian</h3>
-    </div>
-
-</div>   
-            
-        </div>
-
-    </div>
-
-</section>
-
-<!-- QUOTE -->
-
-<section class="quote">
-
-    <h2>Câu nói hôm nay</h2>
-
-    <blockquote>
-
-        "Mỗi ngày là một cơ hội mới để bạn yêu thương chính mình và bước tiếp."
-
-    </blockquote>
-
-</section>
-<!-- NHẬT KÝ -->
-
-<section class="diary-section" id="diary-area">
-
-    <div class="diary-container">
-
-        <span class="section-tag">📖 Nhật ký</span>
+    <section
+        class="features"
+        id="features-area">
 
         <h2>
-            Một góc nhỏ dành cho những điều bạn muốn lưu lại.
+            Tại sao nên chọn Hộp thư tâm lý?
         </h2>
 
-        <p class="diary-intro">
-            Viết lại cảm xúc, suy nghĩ hoặc một điều đáng nhớ trong ngày.
-            Đôi khi nhìn lại những điều mình đã trải qua cũng là một cách
-            để hiểu bản thân hơn.
-        </p>
 
-        <div class="diary-card">
+        <div class="feature-grid">
 
-            <textarea
-                id="diaryInput"
-                placeholder="Hôm nay bạn muốn viết điều gì?">
-            </textarea>
 
-            <button id="saveDiary" class="btn-primary">
-                🌿 Lưu nhật ký
-            </button>
+            <div class="feature-card">
 
-            <p id="diaryMessage"></p>
+                <i class="fa-solid fa-hand-holding-heart"></i>
+
+                <h3>
+                    Đồng hành
+                </h3>
+
+                <p>
+                    Luôn có AI và những nội dung tích cực
+                    đồng hành cùng bạn.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <i class="fa-solid fa-user-shield"></i>
+
+                <h3>
+                    Riêng tư
+                </h3>
+
+                <p>
+                    Tôn trọng quyền riêng tư và giúp bạn
+                    chia sẻ an toàn.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <i class="fa-solid fa-brain"></i>
+
+                <h3>
+                    Cá nhân hóa
+                </h3>
+
+                <p>
+                    Gợi ý phù hợp với cảm xúc và nhu cầu
+                    của từng học sinh.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <i class="fa-solid fa-seedling"></i>
+
+                <h3>
+                    Phát triển bản thân
+                </h3>
+
+                <p>
+                    Khám phá các kỹ năng giúp bạn thích nghi
+                    và trưởng thành.
+                </p>
+
+            </div>
+
 
         </div>
 
-    </div>
+    </section>
 
-</section>
-<!-- FOOTER -->
 
-<footer>
+    <!-- ==================================================
+         AI ĐỒNG HÀNH
+    ================================================== -->
 
-    <h3>🌿 Hộp thư tâm lý</h3>
+    <section
+        class="ai-section"
+        id="ai-area">
+
+        <div class="ai-content">
+
+
+            <div class="ai-text">
+
+                <span class="tag">
+                    AI Đồng Hành
+                </span>
+
+
+                <h2>
+                    Luôn có một người
+                    lắng nghe bạn.
+                </h2>
+
+
+                <p>
+                    AI sẽ đồng hành cùng bạn như một người
+                    bạn thân thiện, giúp bạn chia sẻ cảm xúc,
+                    nhìn nhận vấn đề và tìm ra hướng giải quyết
+                    phù hợp.
+                </p>
+
+
+                <a
+                    href="#sharing-area"
+                    class="btn-primary">
+
+                    💬 Trò chuyện ngay
+
+                </a>
+
+            </div>
+
+
+            <div class="ai-image">
+
+                <i class="fa-solid fa-robot"></i>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         GÓC KỸ NĂNG
+    ================================================== -->
+
+    <section
+        class="skills"
+        id="skills-area">
+
+        <h2>
+            Góc kỹ năng
+        </h2>
+
+
+        <div class="skill-grid">
+
+
+            <div class="skill-card">
+
+                📚
+
+                <h3>
+                    Áp lực học tập
+                </h3>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                👨‍👩‍👧
+
+                <h3>
+                    Gia đình
+                </h3>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                🤝
+
+                <h3>
+                    Bạn bè
+                </h3>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                🌱
+
+                <h3>
+                    Kỹ năng thích ứng
+                </h3>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                🎯
+
+                <h3>
+                    Định hướng tương lai
+                </h3>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                💬
+
+                <h3>
+                    Giao tiếp
+                </h3>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                🧠
+
+                <h3>
+                    Quản lý cảm xúc
+                </h3>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                ⏰
+
+                <h3>
+                    Quản lý thời gian
+                </h3>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         CÂU NÓI HÔM NAY
+    ================================================== -->
+
+    <section class="quote">
+
+        <h2>
+            Câu nói hôm nay
+        </h2>
+
+
+        <blockquote>
+            "Mỗi ngày là một cơ hội mới để bạn yêu thương
+            chính mình và bước tiếp."
+        </blockquote>
+
+    </section>
+
+
+    <!-- ==================================================
+         NHẬT KÝ
+    ================================================== -->
+
+    <section
+        class="diary-section"
+        id="diary-area">
+
+        <div class="diary-container">
+
+
+            <span class="section-tag">
+                📖 Nhật ký
+            </span>
+
+
+            <h2>
+                Một góc nhỏ dành cho những điều
+                bạn muốn lưu lại.
+            </h2>
+
+
+            <p class="diary-intro">
+                Viết lại cảm xúc, suy nghĩ hoặc một điều
+                đáng nhớ trong ngày.
+                Đôi khi nhìn lại những điều mình đã trải qua
+                cũng là một cách để hiểu bản thân hơn.
+            </p>
+
+
+            <div class="diary-card">
+
+
+                <textarea
+                    id="diaryInput"
+                    placeholder="Hôm nay bạn muốn viết điều gì?"></textarea>
+
+
+                <button
+                    id="saveDiary"
+                    class="btn-primary"
+                    type="button">
+
+                    🌿 Lưu nhật ký
+
+                </button>
+
+
+                <p id="diaryMessage"></p>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         CÔNG CỤ TỰ KHÁM PHÁ
+    ================================================== -->
+
+    <section
+        class="test-link"
+        id="self-discovery-area">
+
+
+        <div class="test-icon">
+            🌱
+        </div>
+
+
+        <span class="test-label">
+            CÔNG CỤ TỰ KHÁM PHÁ
+        </span>
+
+
+        <h2>
+            Bạn muốn hiểu bản thân hơn?
+        </h2>
+
+
+        <h3>
+            Hãy thử Bảng tự soi hành vi
+        </h3>
+
+
+        <p>
+            Dành vài phút để nhìn lại cách bạn suy nghĩ,
+            cảm nhận và ứng xử trong những tình huống
+            thường ngày.
+        </p>
+
+
+        <a
+            href="https://www.flexiquiz.com/SC/N/28c896b2-0121-4dc0-a3aa-f3eb8b405f8e"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="test-button">
+
+            📝 Bắt đầu tự soi
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+
+        <small>
+            Một trải nghiệm ngắn • Tự nguyện •
+            Dành cho học sinh
+        </small>
+
+
+    </section>
+
+
+</main>
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer id="contact-area">
+
+    <h3>
+        🌿 Hộp thư tâm lý
+    </h3>
+
 
     <p>
-
-        Đồng hành cùng học sinh THPT trên hành trình chăm sóc sức khỏe tinh thần.
-
+        Đồng hành cùng học sinh THPT trên hành trình
+        chăm sóc sức khỏe tinh thần.
     </p>
 
+
     <p>
-
         © 2026 Hộp thư tâm lý | Version 3.0
-
     </p>
 
 </footer>
-    <div class="test-link">
-   <div class="test-link">
 
-    <div class="test-icon">
-        🌱
-    </div>
 
-    <span class="test-label">
-        CÔNG CỤ TỰ KHÁM PHÁ
-    </span>
-
-    <h2>
-        Bạn muốn hiểu bản thân hơn?
-    </h2>
-
-    <h3>
-        Hãy thử Bảng tự soi hành vi
-    </h3>
-
-    <p>
-        Dành vài phút để nhìn lại cách bạn suy nghĩ,
-        cảm nhận và ứng xử trong những tình huống thường ngày.
-    </p>
-
-    <a
-        href="https://www.flexiquiz.com/SC/N/28c896b2-0121-4dc0-a3aa-f3eb8b405f8e"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="test-button"
-    >
-        📝 Bắt đầu tự soi
-        <span>→</span>
-    </a>
-
-    <small>
-        Một trải nghiệm ngắn • Tự nguyện • Dành cho học sinh
-    </small>
-
-</div>
-</div>
+<!-- JavaScript -->
 <script src="script.js"></script>
+```
 
 </body>
+
 </html>
