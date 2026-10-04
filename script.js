@@ -559,25 +559,85 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* =========================================================
-       10. NÚT ĐĂNG NHẬP — TẠM THỜI
-       ========================================================= */
+/* =========================================================
+   10. ĐĂNG NHẬP — MỞ / ĐÓNG KHUNG
+   ========================================================= */
 
-    if (loginButton) {
+const loginModal =
+    document.getElementById("login-modal");
 
-        loginButton.addEventListener("click", (event) => {
+const loginClose =
+    document.getElementById("login-close");
 
-            event.preventDefault();
+const loginOverlay =
+    document.getElementById("login-overlay");
 
-            alert(
-                "Tính năng đăng nhập đang được hoàn thiện 🌿"
-            );
 
-        });
+/* Mở khung đăng nhập */
+
+if (loginButton && loginModal) {
+
+    loginButton.addEventListener("click", (event) => {
+
+        event.preventDefault();
+
+        loginModal.classList.add("show");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+}
+
+
+/* Đóng bằng nút X */
+
+if (loginClose && loginModal) {
+
+    loginClose.addEventListener("click", () => {
+
+        loginModal.classList.remove("show");
+
+        document.body.style.overflow = "";
+
+    });
+
+}
+
+
+/* Đóng khi bấm ra ngoài */
+
+if (loginOverlay && loginModal) {
+
+    loginOverlay.addEventListener("click", () => {
+
+        loginModal.classList.remove("show");
+
+        document.body.style.overflow = "";
+
+    });
+
+}
+
+
+/* Đóng bằng phím Escape */
+
+document.addEventListener("keydown", (event) => {
+
+    if (
+        event.key === "Escape" &&
+        loginModal &&
+        loginModal.classList.contains("show")
+    ) {
+
+        loginModal.classList.remove("show");
+
+        document.body.style.overflow = "";
 
     }
 
-
+});
+    
     /* =========================================================
        11. KIỂM TRA SCRIPT
        ========================================================= */
