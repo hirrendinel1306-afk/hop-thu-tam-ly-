@@ -1,580 +1,848 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-    // ==============================
-    // HỘP THƯ TÂM LÝ - JAVASCRIPT
-    // ==============================
+```
+/* =========================================================
+   1. CÁC PHẦN TỬ CHÍNH
+   ========================================================= */
 
-    const startButton = document.querySelector(".btn-primary");
-    const exploreButton = document.querySelector(".btn-secondary");
+const startButton = document.querySelector(".btn-primary");
+const exploreButton = document.querySelector(".btn-secondary");
 
-    // ------------------------------
-    // 1. TẠO KHU VỰC TÂM SỰ
-    // ------------------------------
+const menuToggle = document.getElementById("menu-toggle");
+const mainNav = document.getElementById("main-nav");
 
-    const sharingSection = document.createElement("section");
+const loginButton = document.getElementById("login-button");
 
-    sharingSection.id = "sharing-area";
 
-    sharingSection.innerHTML = `
-        <div class="sharing-box">
+/* =========================================================
+   2. TẠO KHU VỰC TÂM SỰ
+   ========================================================= */
 
-            <div class="sharing-header">
-                <span class="sharing-icon">💚</span>
-                <h2>Góc tâm sự</h2>
-                <p>
-                    Bạn có thể viết ra những điều đang khiến bạn suy nghĩ.
-                    Không cần phải viết thật hay, chỉ cần chân thành.
-                </p>
-            </div>
+const sharingSection = document.createElement("section");
+
+sharingSection.id = "sharing-area";
+sharingSection.className = "sharing-section";
+
+sharingSection.innerHTML = `
+    <div class="sharing-box">
+
+        <div class="sharing-header">
+            <span class="sharing-tag">
+                💌 Góc tâm sự
+            </span>
+
+            <h2>
+                Bạn muốn chia sẻ điều gì?
+            </h2>
+
+            <p>
+                Hãy viết ra điều bạn đang suy nghĩ.
+                Bạn không cần phải diễn đạt thật hoàn hảo.
+            </p>
+        </div>
+
+
+        <div class="sharing-form">
 
             <textarea
                 id="sharing-input"
-                placeholder="Hôm nay bạn muốn chia sẻ điều gì?"
-                maxlength="1000"
-            ></textarea>
+                maxlength="2000"
+                placeholder="Hãy chia sẻ điều bạn đang cảm thấy..."></textarea>
 
             <div class="sharing-bottom">
 
-                <span id="char-count">0/1000</span>
+                <span id="char-count">
+                    0 / 2000
+                </span>
 
-                <button id="send-sharing" type="button">
-                    🌿 Gửi tâm sự
+                <button
+                    id="send-sharing"
+                    type="button">
+
+                    💬 Gửi tâm sự
+
                 </button>
 
             </div>
 
-            <div id="sharing-response"></div>
-
         </div>
-    `;
-
-    document.body.appendChild(sharingSection);
 
 
-    // ------------------------------
-    // 2. CSS CHO KHU VỰC TÂM SỰ
-    // ------------------------------
+        <div
+            id="sharing-response"
+            class="sharing-response"
+            aria-live="polite">
+        </div>
 
-    const dynamicStyle = document.createElement("style");
+    </div>
+`;
 
-    dynamicStyle.textContent = `
-        #sharing-area {
-            display: none;
-            padding: 80px 20px;
-            background: #f4fffa;
+
+document.body.insertBefore(
+    sharingSection,
+    document.querySelector("footer")
+);
+
+
+/* =========================================================
+   3. CSS CHO KHU VỰC TÂM SỰ
+   ========================================================= */
+
+const sharingStyle = document.createElement("style");
+
+sharingStyle.textContent = `
+
+    .sharing-section {
+        padding: 90px 8%;
+    }
+
+    .sharing-box {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 45px;
+
+        background: rgba(255,255,255,0.88);
+
+        border: 1px solid rgba(16,185,129,0.1);
+        border-radius: 28px;
+
+        box-shadow:
+            0 18px 50px rgba(16,185,129,0.08);
+    }
+
+    .sharing-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .sharing-tag {
+        display: inline-block;
+
+        margin-bottom: 10px;
+
+        color: #059669;
+
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .sharing-header h2 {
+        margin-bottom: 10px;
+
+        font-size: clamp(28px,4vw,40px);
+
+        line-height: 1.2;
+
+        color: #111827;
+    }
+
+    .sharing-header p {
+        max-width: 600px;
+
+        margin: 0 auto;
+
+        color: #6b7280;
+
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    #sharing-input {
+        display: block;
+
+        width: 100%;
+        min-height: 220px;
+
+        padding: 18px;
+
+        resize: vertical;
+
+        border: 1px solid #d1d5db;
+        border-radius: 17px;
+
+        outline: none;
+
+        background: #fbfffd;
+
+        color: #1f2937;
+
+        font-family: inherit;
+        font-size: 15px;
+
+        line-height: 1.7;
+
+        transition:
+            border-color 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+
+    #sharing-input:focus {
+        border-color: #10b981;
+
+        box-shadow:
+            0 0 0 4px rgba(16,185,129,0.1);
+    }
+
+    .sharing-bottom {
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 15px;
+
+        margin-top: 15px;
+    }
+
+    #char-count {
+        color: #9ca3af;
+
+        font-size: 13px;
+    }
+
+    #send-sharing {
+        border: none;
+
+        padding: 12px 22px;
+
+        border-radius: 999px;
+
+        background: #10b981;
+        color: white;
+
+        font-family: inherit;
+
+        font-size: 14px;
+        font-weight: 600;
+
+        cursor: pointer;
+
+        transition:
+            background 0.25s ease,
+            transform 0.25s ease;
+    }
+
+    #send-sharing:hover {
+        background: #059669;
+
+        transform: translateY(-2px);
+    }
+
+    #send-sharing:disabled {
+        opacity: 0.6;
+
+        cursor: not-allowed;
+
+        transform: none;
+    }
+
+    .sharing-response {
+        display: none;
+
+        margin-top: 25px;
+
+        padding: 22px;
+
+        background: #ecfdf5;
+
+        border-radius: 18px;
+
+        color: #374151;
+
+        font-size: 15px;
+
+        line-height: 1.8;
+
+        white-space: pre-wrap;
+    }
+
+    .sharing-response.show {
+        display: block;
+    }
+
+    @media (max-width: 600px) {
+
+        .sharing-section {
+            padding: 70px 20px;
         }
 
         .sharing-box {
-            max-width: 850px;
-            margin: auto;
-            background: white;
-            padding: 40px;
-            border-radius: 28px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
-        }
+            padding: 28px 18px;
 
-        .sharing-header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .sharing-icon {
-            font-size: 42px;
+            border-radius: 22px;
         }
 
         .sharing-header h2 {
-            font-size: 32px;
-            margin: 10px 0;
-            color: #123c35;
-        }
-
-        .sharing-header p {
-            color: #65736f;
-            line-height: 1.7;
-        }
-
-        #sharing-input {
-            width: 100%;
-            min-height: 180px;
-            padding: 18px;
-            border: 2px solid #dceee8;
-            border-radius: 18px;
-            resize: vertical;
-            font-family: Poppins, sans-serif;
-            font-size: 15px;
-            box-sizing: border-box;
-            outline: none;
-        }
-
-        #sharing-input:focus {
-            border-color: #10b981;
+            font-size: 28px;
         }
 
         .sharing-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 15px;
-            gap: 15px;
-        }
+            flex-direction: column;
 
-        #char-count {
-            color: #7b8985;
-            font-size: 14px;
+            align-items: stretch;
         }
 
         #send-sharing {
-            border: none;
-            background: #10b981;
-            color: white;
-            padding: 13px 24px;
-            border-radius: 12px;
-            font-family: Poppins, sans-serif;
-            font-weight: 600;
-            cursor: pointer;
+            width: 100%;
         }
 
-        #send-sharing:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
+        #sharing-input {
+            min-height: 200px;
         }
 
-        #sharing-response {
-            display: none;
-            margin-top: 25px;
-            padding: 22px;
-            background: #effcf6;
-            border-radius: 18px;
-            color: #24443c;
-            line-height: 1.8;
-        }
+    }
+`;
 
-        .response-title {
-            font-weight: 700;
-            color: #0a9f70;
-            margin-bottom: 8px;
-        }
+document.head.appendChild(sharingStyle);
 
-        @media (max-width: 600px) {
 
-            .sharing-box {
-                padding: 25px 18px;
+/* =========================================================
+   4. NÚT BẮT ĐẦU TÂM SỰ
+   ========================================================= */
+
+if (startButton) {
+
+    startButton.addEventListener("click", (event) => {
+
+        event.preventDefault();
+
+        sharingSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+        setTimeout(() => {
+
+            const input =
+                document.getElementById("sharing-input");
+
+            if (input) {
+                input.focus();
             }
 
-            .sharing-header h2 {
-                font-size: 26px;
-            }
+        }, 600);
 
-            .sharing-bottom {
-                flex-direction: column;
-                align-items: stretch;
-            }
+    });
 
-            #send-sharing {
-                width: 100%;
-            }
-        }
-    `;
-
-    document.head.appendChild(dynamicStyle);
+}
 
 
-    // ------------------------------
-    // 3. NÚT "BẮT ĐẦU TÂM SỰ"
-    // ------------------------------
+/* =========================================================
+   5. NÚT KHÁM PHÁ
+   ========================================================= */
 
-    if (startButton) {
+if (exploreButton) {
 
-        startButton.addEventListener("click", function (event) {
+    exploreButton.addEventListener("click", (event) => {
 
-            event.preventDefault();
+        event.preventDefault();
 
-            sharingSection.style.display = "block";
+        const features =
+            document.getElementById("features-area");
 
-            sharingSection.scrollIntoView({
+        if (features) {
+
+            features.scrollIntoView({
                 behavior: "smooth",
                 block: "start"
             });
 
-            setTimeout(function () {
-                document.getElementById("sharing-input").focus();
-            }, 600);
+        }
 
-        });
+    });
 
-    }
+}
 
 
-    // ------------------------------
-    // 4. NÚT "KHÁM PHÁ"
-    // ------------------------------
+/* =========================================================
+   6. ĐẾM KÝ TỰ
+   ========================================================= */
 
-    if (exploreButton) {
+const sharingInput =
+    document.getElementById("sharing-input");
 
-        exploreButton.addEventListener("click", function (event) {
+const charCount =
+    document.getElementById("char-count");
 
-            event.preventDefault();
 
-            const features = document.querySelector(".features");
+if (sharingInput && charCount) {
 
-            if (features) {
+    sharingInput.addEventListener("input", () => {
 
-                features.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
+        charCount.textContent =
+            `${sharingInput.value.length} / 2000`;
+
+    });
+
+}
+
+
+/* =========================================================
+   7. GỬI TÂM SỰ → CLOUDFLARE WORKER AI
+   ========================================================= */
+
+const sendSharing =
+    document.getElementById("send-sharing");
+
+const sharingResponse =
+    document.getElementById("sharing-response");
+
+
+if (sendSharing && sharingInput && sharingResponse) {
+
+    sendSharing.addEventListener("click", async () => {
+
+        const message =
+            sharingInput.value.trim();
+
+
+        if (!message) {
+
+            sharingResponse.textContent =
+                "Bạn hãy viết một chút gì đó trước khi gửi nhé 🌿";
+
+            sharingResponse.classList.add("show");
+
+            return;
+        }
+
+
+        sendSharing.disabled = true;
+
+        sendSharing.textContent =
+            "Đang lắng nghe...";
+
+
+        sharingResponse.classList.remove("show");
+
+        sharingResponse.textContent = "";
+
+
+        try {
+
+            const response = await fetch(
+                "https://hop-thu-tam-ly-ai.hirren-dinel1306.workers.dev",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        message: message
+                    })
+                }
+            );
+
+
+            if (!response.ok) {
+                throw new Error(
+                    `HTTP ${response.status}`
+                );
+            }
+
+
+            const data =
+                await response.json();
+
+
+            if (!data.reply) {
+                throw new Error(
+                    "Không nhận được phản hồi từ AI."
+                );
+            }
+
+
+            sharingResponse.textContent =
+                data.reply;
+
+            sharingResponse.classList.add("show");
+
+
+        } catch (error) {
+
+            console.error(
+                "Lỗi khi kết nối AI:",
+                error
+            );
+
+
+            sharingResponse.textContent =
+                "Mình chưa thể kết nối với AI lúc này. " +
+                "Bạn thử lại sau một chút nhé 🌿";
+
+
+            sharingResponse.classList.add("show");
+
+
+        } finally {
+
+            sendSharing.disabled = false;
+
+            sendSharing.textContent =
+                "💬 Gửi tâm sự";
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   8. MENU ĐIỆN THOẠI
+   ========================================================= */
+
+if (menuToggle && mainNav) {
+
+    menuToggle.addEventListener("click", () => {
+
+        const isOpen =
+            mainNav.classList.toggle("open");
+
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+
+
+        const icon =
+            menuToggle.querySelector("i");
+
+
+        if (icon) {
+
+            if (isOpen) {
+
+                icon.classList.remove(
+                    "fa-bars"
+                );
+
+                icon.classList.add(
+                    "fa-xmark"
+                );
 
             } else {
 
-                window.scrollTo({
-                    top: window.innerHeight,
-                    behavior: "smooth"
-                });
+                icon.classList.remove(
+                    "fa-xmark"
+                );
+
+                icon.classList.add(
+                    "fa-bars"
+                );
 
             }
 
-        });
-
-    }
-
-
-    // ------------------------------
-    // 5. ĐẾM KÝ TỰ
-    // ------------------------------
-
-    const input = document.getElementById("sharing-input");
-    const charCount = document.getElementById("char-count");
-
-    input.addEventListener("input", function () {
-
-        charCount.textContent =
-            input.value.length + "/1000";
-
-    });
-
-
-    // ------------------------------
-    // 6. GỬI TÂM SỰ
-    // ------------------------------
-
-    const sendButton = document.getElementById("send-sharing");
-    const response = document.getElementById("sharing-response");
-sendButton.addEventListener("click", async function () {
-
-    const message = input.value.trim();
-
-    if (message === "") {
-
-        response.style.display = "block";
-
-        response.innerHTML = `
-            <div class="response-title">
-                🌱 Viết một chút nhé
-            </div>
-
-            <p>
-                Bạn có thể bắt đầu bằng điều đang xuất hiện
-                nhiều nhất trong suy nghĩ của mình.
-            </p>
-        `;
-
-        response.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-        return;
-    }
-
-    // Hiển thị trạng thái đang xử lý
-    response.style.display = "block";
-
-    response.innerHTML = `
-        <div class="response-title">
-            🌿 Hộp thư đang lắng nghe...
-        </div>
-
-        <p>
-            Mình đang đọc những điều bạn vừa chia sẻ.
-            Cho mình một chút thời gian nhé.
-        </p>
-    `;
-
-    response.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
-
-    try {
-
-        const result = await fetch(
-            "https://hop-thu-tam-ly-ai.hirren-dinel1306.workers.dev",
-            {
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify({
-                    message: message
-                })
-            }
-        );
-
-        const data = await result.json();
-
-        if (!result.ok || !data.reply) {
-            throw new Error("AI không trả về hồi âm.");
         }
 
-        // Hiển thị hồi âm do AI tạo
-        response.innerHTML = `
-            <div class="response-title">
-                💚 Hồi âm dành cho bạn
-            </div>
+    });
 
-            <div class="response-message">
-                ${data.reply.replace(/\n/g, "<br>")}
-            </div>
-        `;
 
-        response.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
+    /* Đóng menu sau khi chọn một mục */
+
+    mainNav
+        .querySelectorAll("a")
+        .forEach((link) => {
+
+            link.addEventListener("click", () => {
+
+                mainNav.classList.remove("open");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+
+                const icon =
+                    menuToggle.querySelector("i");
+
+
+                if (icon) {
+
+                    icon.classList.remove(
+                        "fa-xmark"
+                    );
+
+                    icon.classList.add(
+                        "fa-bars"
+                    );
+
+                }
+
+            });
+
         });
 
-    } catch (error) {
 
-        console.error("AI Error:", error);
+    /* Nếu chuyển từ mobile sang desktop */
 
-        response.innerHTML = `
-            <div class="response-title">
-                🌿 Hộp thư đang gặp một chút trục trặc
-            </div>
+    window.addEventListener("resize", () => {
 
-            <p>
-                Hiện tại mình chưa thể gửi hồi âm.
-                Bạn thử lại sau một chút nhé.
-            </p>
-        `;
+        if (window.innerWidth > 768) {
 
+            mainNav.classList.remove("open");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+
+            const icon =
+                menuToggle.querySelector("i");
+
+
+            if (icon) {
+
+                icon.classList.remove(
+                    "fa-xmark"
+                );
+
+                icon.classList.add(
+                    "fa-bars"
+                );
+
+            }
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   9. ĐIỀU HƯỚNG MENU
+   ========================================================= */
+
+if (mainNav) {
+
+    mainNav
+        .querySelectorAll("a")
+        .forEach((link) => {
+
+            link.addEventListener("click", (event) => {
+
+                const targetId =
+                    link.getAttribute("href");
+
+
+                if (
+                    !targetId ||
+                    !targetId.startsWith("#")
+                ) {
+                    return;
+                }
+
+
+                event.preventDefault();
+
+
+                /* Khu vực tâm sự được tạo bằng JS */
+
+                if (
+                    targetId === "#sharing-area"
+                ) {
+
+                    sharingSection.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                    return;
+                }
+
+
+                const target =
+                    document.querySelector(targetId);
+
+
+                if (target) {
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }
+
+            });
+
+        });
+
+}
+
+
+/* =========================================================
+   10. GÓC KỸ NĂNG
+   ========================================================= */
+
+const skillCards =
+    document.querySelectorAll(".skill-card");
+
+
+const skillData = {
+
+    "Áp lực học tập": {
+        title: "📚 Áp lực học tập",
+        content:
+            "Khi việc học khiến bạn cảm thấy quá tải, " +
+            "hãy thử chia nhỏ nhiệm vụ, ưu tiên việc quan trọng " +
+            "và dành thời gian nghỉ ngơi hợp lý."
+    },
+
+    "Gia đình": {
+        title: "👨‍👩‍👧 Gia đình",
+        content:
+            "Những khác biệt trong gia đình đôi khi rất khó nói. " +
+            "Bạn có thể bắt đầu bằng việc chọn một thời điểm bình tĩnh " +
+            "và nói về cảm xúc của mình thay vì chỉ nói về lỗi của người khác."
+    },
+
+    "Bạn bè": {
+        title: "🤝 Bạn bè",
+        content:
+            "Một tình bạn lành mạnh cần có sự tôn trọng, " +
+            "lắng nghe và ranh giới. Bạn không cần phải đồng ý " +
+            "với mọi điều chỉ để giữ một mối quan hệ."
+    },
+
+    "Kỹ năng thích ứng": {
+        title: "🌱 Kỹ năng thích ứng",
+        content:
+            "Thay đổi có thể khiến bạn lo lắng. Hãy tập trung vào " +
+            "những điều bạn có thể kiểm soát và cho bản thân thời gian " +
+            "để thích nghi từng bước."
+    },
+
+    "Định hướng tương lai": {
+        title: "🎯 Định hướng tương lai",
+        content:
+            "Bạn không nhất thiết phải biết chính xác tương lai ngay hôm nay. " +
+            "Hãy tìm hiểu sở thích, điểm mạnh và thử từng bước nhỏ " +
+            "để khám phá hướng đi phù hợp."
+    },
+
+    "Giao tiếp": {
+        title: "💬 Giao tiếp",
+        content:
+            "Giao tiếp hiệu quả không chỉ là nói rõ suy nghĩ mà còn là " +
+            "biết lắng nghe. Hãy sử dụng lời nói tôn trọng và diễn đạt " +
+            "nhu cầu của mình một cách rõ ràng."
+    },
+
+    "Quản lý cảm xúc": {
+        title: "🧠 Quản lý cảm xúc",
+        content:
+            "Cảm xúc không phải điều cần che giấu. Hãy thử gọi tên cảm xúc, " +
+            "tạm dừng trước khi phản ứng và tìm một cách lành mạnh " +
+            "để giải tỏa."
+    },
+
+    "Quản lý thời gian": {
+        title: "⏰ Quản lý thời gian",
+        content:
+            "Bạn có thể bắt đầu bằng việc lập danh sách 3 việc quan trọng " +
+            "nhất trong ngày, chia nhiệm vụ lớn thành các bước nhỏ " +
+            "và tránh cố gắng làm tất cả cùng lúc."
     }
 
-});
-  
-// ------------------------------
-// 7. MENU ĐIỀU HƯỚNG
-// ------------------------------
+};
 
-const navLinks = document.querySelectorAll("nav a");
 
-navLinks.forEach(function(link) {
+skillCards.forEach((card) => {
 
-    link.addEventListener("click", function(event) {
+    card.addEventListener("click", () => {
 
-        event.preventDefault();
+        const title =
+            card.querySelector("h3")?.textContent.trim();
 
-        const text = link.textContent.trim();
 
-        if (text === "Trang chủ") {
+        if (!title || !skillData[title]) {
+            return;
+        }
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
+
+        const oldDetail =
+            document.querySelector(".skill-detail");
+
+
+        if (oldDetail) {
+            oldDetail.remove();
+        }
+
+
+        const detail =
+            document.createElement("div");
+
+
+        detail.className =
+            "skill-detail";
+
+
+        detail.innerHTML = `
+
+            <h3>
+                ${skillData[title].title}
+            </h3>
+
+            <p>
+                ${skillData[title].content}
+            </p>
+
+        `;
+
+
+        const skillGrid =
+            document.querySelector(".skill-grid");
+
+
+        if (skillGrid) {
+
+            skillGrid.after(detail);
+
+            detail.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
             });
 
         }
 
-        else if (text === "Tâm sự") {
-
-            const sharing = document.querySelector("#sharing-area");
-
-            if (sharing) {
-                sharing.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }
-
-        }
-
-        else if (text === "Góc kỹ năng") {
-
-            const features = document.querySelector(".features");
-
-            if (features) {
-                features.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }
-
-        }
-
-        else if (text === "Nhật ký") {
-
-            const diary = document.querySelector("#diary-area");
-
-            if (diary) {
-                diary.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }
-
-        }
-
-        else if (text === "Liên hệ") {
-
-            const footer = document.querySelector("footer");
-
-            if (footer) {
-                footer.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }
-
-        }
-
     });
 
 });
-   
-    // ------------------------------
-    // 8. HOÀN TẤT KẾT NỐI
-    // ------------------------------
-// ==============================
-// GÓC KỸ NĂNG - HIỂN THỊ NỘI DUNG
-// ==============================
 
-const skillCards = document.querySelectorAll(".skill-card");
 
-const skillContents = {
-    "Áp lực học tập": `
-        <h3>📚 Áp lực học tập</h3>
-        <p>
-            Khi cảm thấy quá nhiều bài vở, điểm số hoặc kỳ vọng khiến bạn mệt mỏi,
-            hãy thử chia nhỏ công việc thành từng bước.</p>
-        <p><strong>Một bước nhỏ bạn có thể thử:</strong>
-        Chọn một việc quan trọng nhất hôm nay và hoàn thành nó trước.</p>
-        <p>Đừng cố giải quyết tất cả cùng một lúc. Bạn có thể tiến từng bước nhỏ 🌱</p>
-    `,
+/* =========================================================
+   11. NÚT ĐĂNG NHẬP — TẠM THỜI
+   ========================================================= */
 
-    "Gia đình": `
-        <h3>👨‍👩‍👧 Gia đình</h3>
-        <p>
-            Những khác biệt với gia đình đôi khi khiến bạn khó nói ra cảm xúc của mình.
-            Hãy thử lựa chọn một thời điểm cả hai bên đều bình tĩnh để chia sẻ.</p>
-        <p><strong>Gợi ý:</strong> Nói về cảm xúc của bản thân thay vì chỉ nói
-        người khác đã làm sai điều gì.</p>
-    `,
+if (loginButton) {
 
-    "Bạn bè": `
-        <h3>🤝 Bạn bè</h3>
-        <p>
-            Tình bạn có thể mang đến rất nhiều niềm vui nhưng cũng có lúc khiến bạn
-            buồn hoặc thất vọng.</p>
-        <p>
-            Hãy cho bản thân một chút thời gian để hiểu điều mình thực sự mong muốn
-            trong mối quan hệ đó.</p>
-    `,
+    loginButton.addEventListener("click", (event) => {
 
-    "Kỹ năng thích ứng": `
-        <h3>🌱 Kỹ năng thích ứng</h3>
-        <p>
-            Thay đổi là một phần tự nhiên của cuộc sống. Khi hoàn cảnh thay đổi,
-            bạn có thể bắt đầu bằng việc quan sát, hiểu vấn đề và lựa chọn cách
-            phản ứng phù hợp.</p>
-        <p>
-            <strong>Mẹo nhỏ:</strong> Tập trung vào điều bạn có thể kiểm soát
-            thay vì cố kiểm soát tất cả mọi thứ.</p>
-    `,
+        event.preventDefault();
 
-    "Định hướng tương lai": `
-        <h3>🎯 Định hướng tương lai</h3>
-        <p>
-            Bạn không nhất thiết phải biết chính xác tương lai của mình ngay hôm nay.</p>
-        <p>
-            Hãy bắt đầu bằng việc tìm hiểu điều mình thích, điểm mạnh của bản thân
-            và những mục tiêu nhỏ trong thời gian gần.</p>
-        <p>
-            Mỗi bước nhỏ hôm nay đều có thể giúp bạn hiểu bản thân hơn 🌿</p>
-    `,
-    "Giao tiếp": `
-        <h3>💬 Giao tiếp</h3>
+        alert(
+            "Tính năng đăng nhập đang được hoàn thiện 🌿"
+        );
 
-        <p><strong>Bạn có thể đang gặp:</strong><br>
-        Khó nói ra suy nghĩ, ngại từ chối hoặc lo rằng người khác sẽ hiểu sai mình.</p>
-
-        <p><strong>Bạn có thể thử:</strong><br>
-        Nói rõ điều mình cảm thấy, lắng nghe người đối diện và lựa chọn cách diễn đạt
-        bình tĩnh, tôn trọng.</p>
-
-        <p><strong>🌱 Một bước nhỏ hôm nay:</strong><br>
-        Hãy thử nói ra một điều bạn thường giữ trong lòng theo cách nhẹ nhàng và chân thành.</p>
-    `,
-
-    "Quản lý cảm xúc": `
-        <h3>🧠 Quản lý cảm xúc</h3>
-
-        <p><strong>Bạn có thể đang gặp:</strong><br>
-        Cảm thấy buồn, lo lắng, tức giận hoặc khó tập trung khi có quá nhiều chuyện
-        xảy ra cùng lúc.</p>
-
-        <p><strong>Bạn có thể thử:</strong><br>
-        Gọi tên cảm xúc của mình, tạm dừng trước khi phản ứng và viết ra điều đang
-        khiến bạn khó chịu.</p>
-
-        <p><strong>🌱 Một bước nhỏ hôm nay:</strong><br>
-        Dành vài phút viết câu: “Điều đang khiến mình cảm thấy như vậy là...”</p>
-    `,
-
-    "Quản lý thời gian": `
-        <h3>⏰ Quản lý thời gian</h3>
-
-        <p><strong>Bạn có thể đang gặp:</strong><br>
-        Có quá nhiều việc phải làm nhưng không biết nên bắt đầu từ đâu,
-        dễ trì hoãn hoặc cảm thấy cả ngày vẫn chưa hoàn thành được gì.</p>
-
-        <p><strong>Bạn có thể thử:</strong><br>
-        Chọn 1–3 việc quan trọng nhất trong ngày và chia chúng thành những bước nhỏ.</p>
-
-        <p><strong>🌱 Một bước nhỏ hôm nay:</strong><br>
-        Chọn một việc quan trọng nhất và dành khoảng thời gian đầu tiên trong ngày
-        để hoàn thành nó.</p>
-    `};
-
-skillCards.forEach(card => {
-
-    card.style.cursor = "pointer";
-
-    card.addEventListener("click", function () {
-
-        const title = this.querySelector("h3").textContent.trim();
-
-        let detailBox = document.querySelector(".skill-detail");
-
-        if (!detailBox) {
-            detailBox = document.createElement("div");
-            detailBox.className = "skill-detail";
-
-            document.querySelector(".skill-grid").after(detailBox);
-        }
-
-        detailBox.innerHTML =
-            skillContents[title] ||
-            "<p>Đang cập nhật nội dung cho kỹ năng này 🌱</p>";
-
-        detailBox.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
     });
-});
-    console.log(
-        "🌿 Hộp thư tâm lý - JavaScript đã hoạt động."
-    );
+
+}
+
+
+/* =========================================================
+   12. KIỂM TRA
+   ========================================================= */
+
+console.log(
+    "🌿 Hộp thư tâm lý — Script đã tải thành công."
+);
+```
 
 });
