@@ -1634,3 +1634,164 @@ section {
         animation-duration: 0.01ms !important;
     }
 }
+/* =========================================================
+   FIX HEADER + DESKTOP LAYOUT
+   ========================================================= */
+
+/* Không cho header tự xuống dòng */
+#main-header {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+}
+
+/* Logo luôn ở bên trái */
+#main-header .logo {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+}
+
+/* Menu luôn nằm ở giữa/phía phải */
+#main-header #main-nav {
+    order: 2 !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+
+    flex: 1 1 auto !important;
+
+    gap: 28px !important;
+    margin-left: auto !important;
+    margin-right: 8px !important;
+
+    flex-wrap: nowrap !important;
+}
+
+/* Từng mục menu không bị dính */
+#main-header #main-nav a {
+    display: inline-flex !important;
+    align-items: center !important;
+
+    flex: 0 0 auto !important;
+
+    white-space: nowrap !important;
+
+    margin: 0 !important;
+    padding: 4px 0 !important;
+
+    line-height: 1.5 !important;
+}
+
+/* Nút đăng nhập luôn ở ngoài cùng bên phải */
+#main-header .login-btn {
+    order: 3 !important;
+
+    flex: 0 0 auto !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    margin: 0 0 0 12px !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* Nút bắt đầu tâm sự */
+.hero-buttons .btn-primary,
+.hero-buttons a:first-child {
+    background: #10b981 !important;
+    color: #ffffff !important;
+
+    border: 1px solid #10b981 !important;
+
+    opacity: 1 !important;
+
+    box-shadow:
+        0 10px 25px rgba(16, 185, 129, 0.20) !important;
+}
+
+.hero-buttons .btn-primary:hover,
+.hero-buttons a:first-child:hover {
+    background: #059669 !important;
+    color: #ffffff !important;
+
+    transform: translateY(-2px);
+}
+
+
+/* Nút khám phá */
+.hero-buttons .btn-secondary,
+.hero-buttons a:last-child {
+    background: #ffffff !important;
+    color: #059669 !important;
+
+    border: 1px solid #a7dfcc !important;
+
+    opacity: 1 !important;
+}
+
+
+/* =========================================================
+   FIX MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    #main-header {
+        display: grid !important;
+
+        grid-template-columns: minmax(0, 1fr) auto auto !important;
+
+        align-items: center !important;
+
+        gap: 8px !important;
+    }
+
+    #main-header .logo {
+        order: 1 !important;
+
+        min-width: 0 !important;
+
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    #main-header .login-btn {
+        order: 2 !important;
+
+        margin: 0 !important;
+    }
+
+    #main-header .menu-toggle {
+        order: 3 !important;
+    }
+
+    #main-header #main-nav {
+        order: initial !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        gap: 3px !important;
+
+        margin: 0 !important;
+
+        flex: none !important;
+
+        flex-wrap: nowrap !important;
+    }
+
+    #main-header #main-nav a {
+        width: 100% !important;
+
+        display: block !important;
+
+        white-space: normal !important;
+
+        padding: 12px 14px !important;
+    }
+}
