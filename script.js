@@ -444,141 +444,9 @@ console.log("🌿 Supabase đã kết nối.");
     }
 
 
-    /* =========================================================
-       9. GÓC KỸ NĂNG
-       ========================================================= */
-
-    const skillCards =
-        document.querySelectorAll(".skill-card");
-
-
-    const skillData = {
-
-        "Áp lực học tập": {
-            title: "📚 Áp lực học tập",
-            content:
-                "Khi việc học khiến bạn cảm thấy quá tải, " +
-                "hãy thử chia nhỏ nhiệm vụ, ưu tiên việc quan trọng " +
-                "và dành thời gian nghỉ ngơi hợp lý."
-        },
-
-        "Gia đình": {
-            title: "👨‍👩‍👧 Gia đình",
-            content:
-                "Những khác biệt trong gia đình đôi khi rất khó nói. " +
-                "Bạn có thể bắt đầu bằng việc chọn một thời điểm bình tĩnh " +
-                "và nói về cảm xúc của mình thay vì chỉ nói về lỗi của người khác."
-        },
-
-        "Bạn bè": {
-            title: "🤝 Bạn bè",
-            content:
-                "Một tình bạn lành mạnh cần có sự tôn trọng, " +
-                "lắng nghe và ranh giới. Bạn không cần phải đồng ý " +
-                "với mọi điều chỉ để giữ một mối quan hệ."
-        },
-
-        "Kỹ năng thích ứng": {
-            title: "🌱 Kỹ năng thích ứng",
-            content:
-                "Thay đổi có thể khiến bạn lo lắng. Hãy tập trung vào " +
-                "những điều bạn có thể kiểm soát và cho bản thân thời gian " +
-                "để thích nghi từng bước."
-        },
-
-        "Định hướng tương lai": {
-            title: "🎯 Định hướng tương lai",
-            content:
-                "Bạn không nhất thiết phải biết chính xác tương lai ngay hôm nay. " +
-                "Hãy tìm hiểu sở thích, điểm mạnh và thử từng bước nhỏ " +
-                "để khám phá hướng đi phù hợp."
-        },
-
-        "Giao tiếp": {
-            title: "💬 Giao tiếp",
-            content:
-                "Giao tiếp hiệu quả không chỉ là nói rõ suy nghĩ mà còn là " +
-                "biết lắng nghe. Hãy sử dụng lời nói tôn trọng và diễn đạt " +
-                "nhu cầu của mình một cách rõ ràng."
-        },
-
-        "Quản lý cảm xúc": {
-            title: "🧠 Quản lý cảm xúc",
-            content:
-                "Cảm xúc không phải điều cần che giấu. Hãy thử gọi tên cảm xúc, " +
-                "tạm dừng trước khi phản ứng và tìm một cách lành mạnh " +
-                "để giải tỏa."
-        },
-
-        "Quản lý thời gian": {
-            title: "⏰ Quản lý thời gian",
-            content:
-                "Bạn có thể bắt đầu bằng việc lập danh sách 3 việc quan trọng " +
-                "nhất trong ngày, chia nhiệm vụ lớn thành các bước nhỏ " +
-                "và tránh cố gắng làm tất cả cùng lúc."
-        }
-
-    };
-
-
-    skillCards.forEach((card) => {
-
-        card.addEventListener("click", () => {
-
-            const title =
-                card.querySelector("h3")?.textContent.trim();
-
-
-            if (!title || !skillData[title]) {
-                return;
-            }
-
-
-            const oldDetail =
-                document.querySelector(".skill-detail");
-
-
-            if (oldDetail) {
-                oldDetail.remove();
-            }
-
-
-            const detail =
-                document.createElement("div");
-
-
-            detail.className =
-                "skill-detail";
-
-
-            detail.innerHTML = `
-                <h3>${skillData[title].title}</h3>
-                <p>${skillData[title].content}</p>
-            `;
-
-
-            const skillGrid =
-                document.querySelector(".skill-grid");
-
-
-            if (skillGrid) {
-
-                skillGrid.after(detail);
-
-                detail.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-            }
-
-        });
-
-    });
-
-
+   
 /* =========================================================
-   10. ĐĂNG NHẬP — MỞ / ĐÓNG KHUNG
+   9. ĐĂNG NHẬP — MỞ / ĐÓNG KHUNG
    ========================================================= */
 
 const loginModal =
@@ -658,7 +526,7 @@ document.addEventListener("keydown", (event) => {
 
 
 /* =========================================================
-   11. KHUNG TẠO TÀI KHOẢN
+   10. KHUNG TẠO TÀI KHOẢN
    ========================================================= */
 
 const registerButton =
@@ -745,7 +613,7 @@ if (backLoginButton && registerModal && loginModal) {
 }
 
 /* =========================================================
-   12. ĐĂNG KÝ TÀI KHOẢN — SUPABASE
+   11. ĐĂNG KÝ TÀI KHOẢN — SUPABASE
    ========================================================= */
 
 const registerForm =
@@ -864,7 +732,7 @@ if (registerForm) {
 
 
 /* =========================================================
-   13. XỬ LÝ ĐĂNG NHẬP — SUPABASE
+   12. XỬ LÝ ĐĂNG NHẬP — SUPABASE
    ========================================================= */
 
 const loginForm =
@@ -940,7 +808,7 @@ if (loginForm) {
 
 
 /* =========================================================
-   14. KIỂM TRA SCRIPT
+   13. KIỂM TRA SCRIPT
    ========================================================= */
 
 console.log(
