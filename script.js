@@ -946,3 +946,5 @@ if (loginForm) {
 console.log(
     "🌿 Hộp thư tâm lý — Script đã tải thành công."
 );
+
+});                          
